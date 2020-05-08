@@ -22,12 +22,12 @@ struct Book {
 ```
 
 ```swift
-func presentBookViewController(bookId: Int) -> UIViewController {
+func presentBookViewController(bookId: Int) {
     let viewController = AsyncViewController(load: { callback in
         MyBackend.loadBook(id: bookId, handler: callback)
-    }, success: { book -> UIViewController in
-        return BookViewController(book: book)
-    }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+    }, success: { book -> BookViewController in
+        return .init(book: book)
+    }) { error -> AsyncViewController<BookViewController, String, Error>.FailureResolution in
         return .showViewController(ErrorViewController(error))
     }
     viewController.overridesNavigationItem = true
@@ -35,15 +35,15 @@ func presentBookViewController(bookId: Int) -> UIViewController {
 }
 ```
 
-You can provide a custom action when the loading fails. The FailureResolution provides a case that you can use to pass a callback.
+You can provide a custom action when the loading fails. The `FailureResolution` enum provides a case that you can use to pass a callback.
 
 ```swift
-func presentBookViewController(bookId: Int) -> UIViewController {
+func presentBookViewController(bookId: Int) {
     let viewController = AsyncViewController(load: { callback in
         MyBackend.loadBook(id: bookId, handler: callback)
-    }, success: { book -> UIViewController in
-        return BookViewController(book: book)
-    }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+    }, success: { book -> BookViewController in
+        return .init(book: book)
+    }) { error -> AsyncViewController<BookViewController, String, Error>.FailureResolution in
         return .custom({ asyncViewController in
             asyncViewController.dismiss(animated: true)
         })
