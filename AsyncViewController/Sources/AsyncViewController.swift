@@ -17,7 +17,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     // MARK: - UI Elements
     
-    public let activityIndicatorView = UIActivityIndicatorView()
+    public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     public let label = UILabel()
     public var successViewController: VC? = nil
 
