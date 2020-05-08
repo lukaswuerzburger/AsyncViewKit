@@ -8,11 +8,16 @@
 
 import UIKit
 
-open class AsyncViewController<VC: UIViewController, T>: UIViewController {
+open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewController {
 
+    public enum FailureResolution {
+        case showViewController(UIViewController)
+        case custom((AsyncViewController<VC, T, E>) -> Void)
+    }
+    
     // MARK: - UI Elements
     
-    public let activityIndicatorView = UIActivityIndicatorView()
+    public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     public let label = UILabel()
     public var successViewController: VC? = nil
 
@@ -21,16 +26,16 @@ open class AsyncViewController<VC: UIViewController, T>: UIViewController {
     public var overridesNavigationItem: Bool = false
     public var shouldFadeInViewAfterLoading: Bool = true
     
-    private var load: (@escaping (Result<T, Failure>) -> Void) -> Void
+    private var load: (@escaping (Result<T, E>) -> Void) -> Void
     private var success: (T) -> VC
-    private var failure: (Failure, AsyncViewController<VC, T>) -> UIViewController
+    private var failure: (E) -> FailureResolution
 
     // MARK: - Initializer
     
     required public init(
-        load: @escaping (@escaping (Result<T, Failure>) -> Void) -> Void,
+        load: @escaping (@escaping (Result<T, E>) -> Void) -> Void,
         success: @escaping (T) -> VC,
-        failure: @escaping (Failure, AsyncViewController<VC, T>) -> UIViewController
+        failure: @escaping (E) -> FailureResolution
     ) {
         self.load = load
         self.success = success
@@ -124,7 +129,7 @@ open class AsyncViewController<VC: UIViewController, T>: UIViewController {
     
     open func didLoadViewController(_ viewController: VC) {}
     
-    open func didFailLoading(_ failure: Failure) {}
+    open func didFailLoading(_ error: E) {}
     
     // MARK: - Networking
     
@@ -137,7 +142,7 @@ open class AsyncViewController<VC: UIViewController, T>: UIViewController {
         }
     }
     
-    private func handleReload(result: Result<T, Failure>) {
+    private func handleReload(result: Result<T, E>) {
         switch result {
         case .success(let model):
             let viewController = success(model)
@@ -146,15 +151,12 @@ open class AsyncViewController<VC: UIViewController, T>: UIViewController {
             add(viewController)
         case .failure(let error):
             didFailLoading(error)
-            add(failure(error, self))
+            switch failure(error) {
+            case .showViewController(let viewController):
+                add(viewController)
+            case .custom(let customCallback):
+                customCallback(self)
+            }
         }
-    }
-}
-
-extension AsyncViewController {
-    
-    public enum Failure: Error {
-        case notFound
-        case noInternet
     }
 }
