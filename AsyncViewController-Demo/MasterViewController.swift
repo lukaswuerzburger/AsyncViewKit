@@ -57,8 +57,8 @@ class MasterViewController: UITableViewController {
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }) { failure, viewController -> UIViewController in
-            return UIViewController()
+        }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+            return .showViewController(self.viewController(title: "Something went wrong."))
         }
         viewController.overridesNavigationItem = true
         return viewController
@@ -67,13 +67,12 @@ class MasterViewController: UITableViewController {
     func failureViewController(_ failureBlock: @escaping (UIViewController) -> Void) -> UIViewController {
         let viewController = AsyncViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                callback(.failure(.notFound))
+                callback(.failure(MyResponseError.notFound))
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }) { failure, viewController -> UIViewController in
-            failureBlock(viewController)
-            return self.viewController(title: "Something went wrong ...")
+        }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+            return .showViewController(self.viewController(title: "Something went wrong."))
         }
         return viewController
     }
@@ -82,6 +81,10 @@ class MasterViewController: UITableViewController {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "detail") as! DetailViewController
         viewController.title = title
         return viewController
+    }
+    
+    func errorViewController(error: Error) -> UIViewController {
+        return UIViewController()
     }
     
     func presentSuccessPush() {
@@ -107,3 +110,6 @@ class MasterViewController: UITableViewController {
     }
 }
 
+enum MyResponseError: Error {
+    case notFound
+}

@@ -33,6 +33,8 @@
 		8AC165372465932400BBC00D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8AC165452465937F00BBC00D /* AsyncViewController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AsyncViewController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC165622465A91900BBC00D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AsyncViewController.podspec; sourceTree = "<group>"; };
+		8AC165652465AF1000BBC00D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,8 @@
 		8AC164F22465894600BBC00D = {
 			isa = PBXGroup;
 			children = (
+				8AC165652465AF1000BBC00D /* README.md */,
+				8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */,
 				8AC1652C2465930F00BBC00D /* AsyncViewController */,
 				8AC1652D2465932400BBC00D /* AsyncViewController-Demo */,
 				8AC164FD2465894600BBC00D /* Products */,
@@ -321,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
