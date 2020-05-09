@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A46380B2466AF15000B963F /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC164FF2465894600BBC00D /* AsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncViewController.h; sourceTree = "<group>"; };
 		8AC165002465894600BBC00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			children = (
 				8AC165652465AF1000BBC00D /* README.md */,
 				8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */,
+				8A46380B2466AF15000B963F /* Package.swift */,
 				8AC1652C2465930F00BBC00D /* AsyncViewController */,
 				8AC1652D2465932400BBC00D /* AsyncViewController-Demo */,
 				8AC164FD2465894600BBC00D /* Products */,

@@ -45,9 +45,18 @@ return .custom({ asyncViewController in
 
 ### 💻 How to use
 
+**Cocoapods**:  
 `AsyncViewController` is available on Cocoapods. Just put following line in your `Podfile`:
 ```ruby
 pod 'AsyncViewController'
+```
+
+**Swift Package Manager**:  
+Add the following to your `Package.swift` file:
+```swift
+dependencies: [
+    .package(url: "https://github.com/lukaswuerzburger/AsyncViewController.git", from: "1.0.1")
+]
 ```
 
 ### ⚠️ Requirements
