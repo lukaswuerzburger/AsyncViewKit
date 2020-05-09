@@ -17,18 +17,19 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     // MARK: - UI Elements
     
-    public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
-    public let label = UILabel()
-    public var successViewController: VC? = nil
-
+    public var loadingViewController: LoadingAnimatable = LoadingViewController()
+    private(set) public var successViewController: VC? = nil
+    private var destinationViewController: UIViewController?
+    
     // MARK: - Variables
     
     public var overridesNavigationItem: Bool = false
-    public var shouldFadeInViewAfterLoading: Bool = true
+    public var fadesInResultingViewAfterLoading: Bool = true
+    public var fadesLoadingAnimation: Bool = true
     
-    private var load: (@escaping (Result<T, E>) -> Void) -> Void
-    private var success: (T) -> VC
-    private var failure: (E) -> FailureResolution
+    private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
+    private var successClosure: (T) -> VC
+    private var failureClosure: (E) -> FailureResolution
 
     // MARK: - Initializer
     
@@ -37,11 +38,10 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
         success: @escaping (T) -> VC,
         failure: @escaping (E) -> FailureResolution
     ) {
-        self.load = load
-        self.success = success
-        self.failure = failure
+        self.loadClosure = load
+        self.successClosure = success
+        self.failureClosure = failure
         super.init(nibName: nil, bundle: nil)
-        reload()
     }
 
     required public init?(coder: NSCoder) {
@@ -50,42 +50,17 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
 
     // MARK: - View Life Cycle
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-
-    // MARK: - View Setup
-    
-    private func setupView() {
         view.backgroundColor = .white
-        setupActivityIndicatorView()
-        setupLabel()
-    }
-
-    private func setupActivityIndicatorView() {
-        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicatorView)
-        NSLayoutConstraint.activate([
-            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        addViewController(loadingViewController)
+        reload()
     }
     
-    private func setupLabel() {
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.leftAnchor.constraint(greaterThanOrEqualTo: view.leftAnchor, constant: 20),
-            label.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -20),
-            label.topAnchor.constraint(equalTo: activityIndicatorView.bottomAnchor, constant: 20)
-        ])
-    }
-
     // MARK: - View Helpers
     
-    private func add(_ viewController: UIViewController) {
+    private func addDestinationViewController(_ viewController: UIViewController) {
+        destinationViewController = viewController
         addViewController(viewController)
         animateFadeInIfNeeded(for: viewController)
         overrideNavigationItemIfNeeded(viewController)
@@ -105,7 +80,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     }
     
     private func animateFadeInIfNeeded(for viewController: UIViewController) {
-        guard shouldFadeInViewAfterLoading else { return }
+        guard fadesInResultingViewAfterLoading else { return }
         viewController.view.alpha = 0
         UIView.animate(withDuration: 0.5) {
             viewController.view.alpha = 1
@@ -114,15 +89,15 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     private func overrideNavigationItemIfNeeded(_ viewController: UIViewController) {
         guard overridesNavigationItem else { return }
-        navigationItem.leftBarButtonItem = viewController.navigationItem.leftBarButtonItem
+        navigationItem.leftBarButtonItems = viewController.navigationItem.leftBarButtonItems
+        navigationItem.rightBarButtonItems = viewController.navigationItem.rightBarButtonItems
         navigationItem.title = viewController.navigationItem.title
         navigationItem.titleView = viewController.navigationItem.titleView
-        navigationItem.rightBarButtonItem = viewController.navigationItem.rightBarButtonItem
     }
 
-    private func remove(_ viewController: UIViewController) {
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParent()
+    private func removeDestinationViewControllerIfNeeded() {
+        destinationViewController?.view.removeFromSuperview()
+        destinationViewController?.removeFromParent()
     }
     
     // MARK: - Life Cycle Hooks
@@ -134,26 +109,27 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     // MARK: - Networking
     
     public func reload() {
-        activityIndicatorView.startAnimating()
-        children.forEach({ remove($0) })
-        load { [weak self] result in
-            self?.activityIndicatorView.stopAnimating()
-            self?.handleReload(result: result)
+        removeDestinationViewControllerIfNeeded()
+        loadingViewController.startLoadingAnimation(animated: fadesLoadingAnimation)
+        loadClosure { [weak self] result in
+            guard let self = self else { return }
+            self.loadingViewController.stopLoadingAnimation(animated: self.fadesLoadingAnimation)
+            self.handleReload(result: result)
         }
     }
     
     private func handleReload(result: Result<T, E>) {
         switch result {
         case .success(let model):
-            let viewController = success(model)
+            let viewController = successClosure(model)
             successViewController = viewController
             didLoadViewController(viewController)
-            add(viewController)
+            addDestinationViewController(viewController)
         case .failure(let error):
             didFailLoading(error)
-            switch failure(error) {
+            switch failureClosure(error) {
             case .showViewController(let viewController):
-                add(viewController)
+                addDestinationViewController(viewController)
             case .custom(let customCallback):
                 customCallback(self)
             }

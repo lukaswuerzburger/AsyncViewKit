@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */; };
+		8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380E2466E6EA000B963F /* LoadingViewController.swift */; };
+		8A4638102466E71B000B963F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380E2466E6EA000B963F /* LoadingViewController.swift */; };
+		8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
+		8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
 		8AC165012465894600BBC00D /* AsyncViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC164FF2465894600BBC00D /* AsyncViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncViewController.swift */; };
 		8AC1655B2465957600BBC00D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncViewController.swift */; };
@@ -21,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		8A46380B2466AF15000B963F /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingViewController.swift; sourceTree = "<group>"; };
+		8A46380E2466E6EA000B963F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC164FF2465894600BBC00D /* AsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncViewController.h; sourceTree = "<group>"; };
 		8AC165002465894600BBC00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				8AC165082465899700BBC00D /* AsyncViewController.swift */,
+				8A46380E2466E6EA000B963F /* LoadingViewController.swift */,
+				8A4638112466E74B000B963F /* LoadingAnimatable.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -111,6 +121,7 @@
 				8AC165372465932400BBC00D /* SceneDelegate.swift */,
 				8AC165352465932400BBC00D /* MasterViewController.swift */,
 				8AC165622465A91900BBC00D /* DetailViewController.swift */,
+				8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */,
 			);
 			path = "AsyncViewController-Demo";
 			sourceTree = "<group>";
@@ -238,7 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */,
 				8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */,
+				8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,10 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4638102466E71B000B963F /* LoadingViewController.swift in Sources */,
 				8AC1655E2465957C00BBC00D /* MasterViewController.swift in Sources */,
 				8AC1655C2465957C00BBC00D /* AppDelegate.swift in Sources */,
+				8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */,
 				8AC165632465A91900BBC00D /* DetailViewController.swift in Sources */,
 				8AC1655B2465957600BBC00D /* AsyncViewController.swift in Sources */,
+				8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */,
 				8AC1655D2465957C00BBC00D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
