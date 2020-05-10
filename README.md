@@ -16,11 +16,11 @@ The `AsyncViewController` works as a bridge between loading your data for a spec
 
 ## 🖥 Example
 
-### **The old way**
+**The old way:**
 
 The initial motivation was to get rid of the optional object property inside of a detail view controller and also remove the logic from the detail view controller including the data loading and displaying a loading view. 
 
-Imagine a **BookViewController**
+Imagine a *BookViewController*:
 ```swift
 class BookViewController: UIViewController {
 
@@ -38,11 +38,11 @@ class BookViewController: UIViewController {
 }
 ```
 
-### **The new way**
+**The new way:**
 
 The `AsyncViewController` burries the boiler plate code and provides you a handy initializer to define your asynchronous call, the view controller when it was successful, and a resolution action when it fails.
 
-Imagine calling this from a **BookShelfViewController**:
+Imagine calling this from a *BookShelfViewController*:
 ```swift
 func presentBookViewController(bookId: Int) {
     let asyncViewController = AsyncViewController(load: { callback in
@@ -59,7 +59,7 @@ func presentBookViewController(bookId: Int) {
 
 ## 🔨 Customization
 
-### **Error Handling**
+**Error Handling:**
 
 You can provide a custom action when the loading fails. The `FailureResolution` enum provides a case that you can use to pass a callback.  
 Maybe you want to dismiss the view controller, or pop it from the navigation stack. 
@@ -70,7 +70,7 @@ return .custom({ asyncViewController in
 })
 ```
 
-### **Custom Loading View**
+**Custom Loading View:**
 
 If you want to show your own loading view you can use any `UIViewController` conforming to the `LoadingAnimatable` protocol described [here](AsyncViewController/Sources/LoadingAnimatable.swift).
 
