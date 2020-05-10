@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */; };
+		8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380E2466E6EA000B963F /* LoadingViewController.swift */; };
+		8A4638102466E71B000B963F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380E2466E6EA000B963F /* LoadingViewController.swift */; };
+		8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
+		8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
+		8A61829224686025004383B3 /* NavigationItemOverridePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */; };
+		8A61829424686056004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
+		8A6182952468606B004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
+		8A61829624686073004383B3 /* NavigationItemOverridePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */; };
 		8AC165012465894600BBC00D /* AsyncViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC164FF2465894600BBC00D /* AsyncViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncViewController.swift */; };
 		8AC1655B2465957600BBC00D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncViewController.swift */; };
@@ -20,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A46380B2466AF15000B963F /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingViewController.swift; sourceTree = "<group>"; };
+		8A46380E2466E6EA000B963F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
+		8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicy.swift; sourceTree = "<group>"; };
+		8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncViewController+FailureResolution.swift"; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC164FF2465894600BBC00D /* AsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncViewController.h; sourceTree = "<group>"; };
 		8AC165002465894600BBC00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +75,7 @@
 			children = (
 				8AC165652465AF1000BBC00D /* README.md */,
 				8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */,
+				8A46380B2466AF15000B963F /* Package.swift */,
 				8AC1652C2465930F00BBC00D /* AsyncViewController */,
 				8AC1652D2465932400BBC00D /* AsyncViewController-Demo */,
 				8AC164FD2465894600BBC00D /* Products */,
@@ -88,6 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				8AC165082465899700BBC00D /* AsyncViewController.swift */,
+				8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */,
+				8A46380E2466E6EA000B963F /* LoadingViewController.swift */,
+				8A4638112466E74B000B963F /* LoadingAnimatable.swift */,
+				8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -109,6 +129,7 @@
 				8AC165372465932400BBC00D /* SceneDelegate.swift */,
 				8AC165352465932400BBC00D /* MasterViewController.swift */,
 				8AC165622465A91900BBC00D /* DetailViewController.swift */,
+				8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */,
 			);
 			path = "AsyncViewController-Demo";
 			sourceTree = "<group>";
@@ -236,7 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A61829224686025004383B3 /* NavigationItemOverridePolicy.swift in Sources */,
+				8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */,
 				8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */,
+				8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */,
+				8A61829424686056004383B3 /* AsyncViewController+FailureResolution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4638102466E71B000B963F /* LoadingViewController.swift in Sources */,
 				8AC1655E2465957C00BBC00D /* MasterViewController.swift in Sources */,
 				8AC1655C2465957C00BBC00D /* AppDelegate.swift in Sources */,
+				8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */,
 				8AC165632465A91900BBC00D /* DetailViewController.swift in Sources */,
 				8AC1655B2465957600BBC00D /* AsyncViewController.swift in Sources */,
+				8A6182952468606B004383B3 /* AsyncViewController+FailureResolution.swift in Sources */,
+				8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */,
+				8A61829624686073004383B3 /* NavigationItemOverridePolicy.swift in Sources */,
 				8AC1655D2465957C00BBC00D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +337,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -370,7 +400,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -401,8 +431,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UE4U5XA7R9;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 2.0.0;
+				DYLIB_CURRENT_VERSION = 2.0.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "AsyncViewController/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -427,8 +457,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UE4U5XA7R9;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 2.0.0;
+				DYLIB_CURRENT_VERSION = 2.0.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "AsyncViewController/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
