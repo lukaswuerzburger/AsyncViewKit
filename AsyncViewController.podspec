@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
     s.name = "AsyncViewController"
-    s.version = "1.0.0"
+    s.version = "2.0.0"
     s.summary = "AsyncViewController provides bridges the gap between loading data and presenting the respective view controller."
     s.author = "Lukas Würzburger"
     s.license = { :type => "MIT" }
     s.homepage = "https://github.com/lukaswuerzburger/AsyncViewController"
     s.platform = :ios
-    s.source = { :git => "https://github.com/lukaswuerzburger/AsyncViewController.git", :tag => "1.0.0" }
+    s.source = { :git => "https://github.com/lukaswuerzburger/AsyncViewController.git", :tag => "2.0.0" }
     s.source_files = "AsyncViewController/Sources/*.swift"
     s.ios.deployment_target = "9.0"
     s.ios.frameworks = 'Foundation', 'UIKit'
