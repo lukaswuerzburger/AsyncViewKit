@@ -67,11 +67,11 @@ public class LoadingViewController: UIViewController, LoadingAnimatable {
         return activityIndicatorView.isAnimating
     }
     
-    public func startLoadingAnimation(animated: Bool) {
+    public func startLoadingAnimation() {
         activityIndicatorView.startAnimating()
     }
     
-    public func stopLoadingAnimation(animated: Bool) {
+    public func stopLoadingAnimation() {
         activityIndicatorView.stopAnimating()
     }
 }

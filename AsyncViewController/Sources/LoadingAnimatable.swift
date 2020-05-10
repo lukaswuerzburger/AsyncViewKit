@@ -10,6 +10,6 @@ import UIKit
 
 public protocol LoadingAnimatable: UIViewController {
     var isAnimating: Bool { get }
-    func startLoadingAnimation(animated: Bool)
-    func stopLoadingAnimation(animated: Bool)
+    func startLoadingAnimation()
+    func stopLoadingAnimation()
 }

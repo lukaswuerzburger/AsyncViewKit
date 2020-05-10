@@ -25,7 +25,6 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     public var overridesNavigationItem: Bool = false
     public var fadesInResultingViewAfterLoading: Bool = true
-    public var fadesLoadingAnimation: Bool = true
     
     private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
     private var successClosure: (T) -> VC
@@ -38,9 +37,9 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
         success: @escaping (T) -> VC,
         failure: @escaping (E) -> FailureResolution
     ) {
-        self.loadClosure = load
-        self.successClosure = success
-        self.failureClosure = failure
+        loadClosure = load
+        successClosure = success
+        failureClosure = failure
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,10 +49,13 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
 
     // MARK: - View Life Cycle
     
+    open override func loadView() {
+        super.loadView()
+        view.backgroundColor = .white
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        addViewController(loadingViewController)
         reload()
     }
     
@@ -96,8 +98,13 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     }
 
     private func removeDestinationViewControllerIfNeeded() {
-        destinationViewController?.view.removeFromSuperview()
-        destinationViewController?.removeFromParent()
+        guard let viewController = destinationViewController else { return }
+        remove(viewController)
+    }
+    
+    private func remove(_ viewController: UIViewController) {
+        viewController.view.removeFromSuperview()
+        viewController.removeFromParent()
     }
     
     // MARK: - Life Cycle Hooks
@@ -110,10 +117,12 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     public func reload() {
         removeDestinationViewControllerIfNeeded()
-        loadingViewController.startLoadingAnimation(animated: fadesLoadingAnimation)
+        addViewController(loadingViewController)
+        loadingViewController.startLoadingAnimation()
         loadClosure { [weak self] result in
             guard let self = self else { return }
-            self.loadingViewController.stopLoadingAnimation(animated: self.fadesLoadingAnimation)
+            self.loadingViewController.stopLoadingAnimation()
+            self.remove(self.loadingViewController)
             self.handleReload(result: result)
         }
     }
