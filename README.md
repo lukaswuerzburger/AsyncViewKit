@@ -101,7 +101,7 @@ pod 'AsyncViewController'
 Add the following to your `Package.swift` file:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/lukaswuerzburger/AsyncViewController.git", from: "1.0.1")
+    .package(url: "https://github.com/lukaswuerzburger/AsyncViewController.git", from: "2.0.0")
 ]
 ```
 
