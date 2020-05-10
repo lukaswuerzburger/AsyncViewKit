@@ -10,11 +10,6 @@ import UIKit
 
 open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewController {
 
-    public enum FailureResolution {
-        case showViewController(UIViewController)
-        case custom((AsyncViewController<VC, T, E>) -> Void)
-    }
-    
     // MARK: - UI Elements
     
     public var loadingViewController: LoadingAnimatable = LoadingViewController()
@@ -23,7 +18,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     
     // MARK: - Variables
     
-    public var overridesNavigationItem: Bool = false
+    public var navigationItemOverridePolicy: NavigationItemOverridePolicy = []
     public var fadesInResultingViewAfterLoading: Bool = true
     
     private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
@@ -90,11 +85,16 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     }
     
     private func overrideNavigationItemIfNeeded(_ viewController: UIViewController) {
-        guard overridesNavigationItem else { return }
-        navigationItem.leftBarButtonItems = viewController.navigationItem.leftBarButtonItems
-        navigationItem.rightBarButtonItems = viewController.navigationItem.rightBarButtonItems
-        navigationItem.title = viewController.navigationItem.title
-        navigationItem.titleView = viewController.navigationItem.titleView
+        if navigationItemOverridePolicy.contains(.leftBarButtonItems) {
+            navigationItem.leftBarButtonItems = viewController.navigationItem.leftBarButtonItems
+        }
+        if navigationItemOverridePolicy.contains(.title) {
+            navigationItem.title = viewController.navigationItem.title
+            navigationItem.titleView = viewController.navigationItem.titleView
+        }
+        if navigationItemOverridePolicy.contains(.rightBarButtonItems) {
+            navigationItem.rightBarButtonItems = viewController.navigationItem.rightBarButtonItems
+        }
     }
 
     private func removeDestinationViewControllerIfNeeded() {

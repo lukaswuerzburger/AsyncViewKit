@@ -16,7 +16,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 9
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,6 +35,10 @@ class MasterViewController: UITableViewController {
             cell.textLabel!.text = "⚠️ Failure Modal (Auto Dismiss + Alert)"
         } else if indexPath.row == 6 {
             cell.textLabel!.text = "🌈 Custom Loading Animation"
+        } else if indexPath.row == 7 {
+            cell.textLabel!.text = "🧭 Navigation Item Override"
+        } else if indexPath.row == 8 {
+            cell.textLabel!.text = "🧭 Custom Navigation Item Override"
         }
         return cell
     }
@@ -54,12 +58,16 @@ class MasterViewController: UITableViewController {
             presentFailureModal(autoDismiss: true)
         } else if indexPath.row == 6 {
             presentCustomAnimation()
+        } else if indexPath.row == 7 {
+            presentNavigationOverride()
+        } else if indexPath.row == 8 {
+            presentCustomNavigationOverride()
         }
     }
     
     // MARK: - Helper
     
-    func successViewController() -> UIViewController {
+    func successViewController() -> AsyncViewController<UIViewController, String, Error> {
         let viewController = AsyncViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 callback(.success("It worked 🎉"))
@@ -149,8 +157,24 @@ class MasterViewController: UITableViewController {
         navigationController?.pushViewController(customAnimationViewController(), animated: true)
     }
     
+    func presentNavigationOverride() {
+        let viewController = successViewController()
+        viewController.title = "Loading"
+        viewController.navigationItemOverridePolicy = .all
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func presentCustomNavigationOverride() {
+        let viewController = successViewController()
+        viewController.title = "Loading"
+        viewController.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)]
+        viewController.navigationItemOverridePolicy = .rightBarButtonItems
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func presentModalViewController(viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
         present(navigationController, animated: true)
     }

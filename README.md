@@ -14,6 +14,8 @@
 
 The `AsyncViewController` works as a bridge between loading your data for a specific view and presenting the view controller. It presents a loading screen as long as you're waiting for a response and you can provide the destination view controllers (either for success or error) beforehand without having to put all this logic into your final view controller.
 
+<img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async-view-controller-demo.gif" alt="Async View Controller Demo" title="Async View Controller Demo" width="320"/>
+
 ## 🖥 Example
 
 **The old way:**
@@ -77,6 +79,8 @@ If you want to show your own loading view you can use any `UIViewController` con
 ```swift
 asyncViewController.loadingViewController = MyLoadingViewController()
 ```
+
+Check out the Demo 
 
 ## 💻 How to use
 
