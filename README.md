@@ -3,11 +3,11 @@
 ## Contents
 
 - ✍️ [Description](#%EF%B8%8F-description)
-- 🖥 [Examples](#-examples)
+- 🖥 [Example](#-example)
 - 🔨 [Customization](#-customization)
 - 💻 [How to use](#-how-to-use)
-- ⚠️ [Requirements](#-requirements)
-- 💆 [Inspiration](#%EF%B8%8F-inspiration)
+- ⚠️ [Requirements](#%EF%B8%8F-requirements)
+- 💆 [Inspiration](#-inspiration)
 - 💪 [Contribute](#-contribute)
 
 ## ✍️ Description
