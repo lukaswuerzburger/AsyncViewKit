@@ -22,19 +22,19 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         if indexPath.row == 0 {
-            cell.textLabel!.text = "Success Push"
+            cell.textLabel!.text = "🎉 Success Push"
         } else if indexPath.row == 1 {
-            cell.textLabel!.text = "Success Modal"
+            cell.textLabel!.text = "🎉 Success Modal"
         } else if indexPath.row == 2 {
-            cell.textLabel!.text = "Failure Push"
+            cell.textLabel!.text = "⚠️ Failure Push"
         } else if indexPath.row == 3 {
-            cell.textLabel!.text = "Failure Modal"
+            cell.textLabel!.text = "⚠️ Failure Modal"
         } else if indexPath.row == 4 {
-            cell.textLabel!.text = "Failure Push (Auto Dismiss + Alert)"
+            cell.textLabel!.text = "⚠️ Failure Push (Auto Dismiss + Alert)"
         } else if indexPath.row == 5 {
-            cell.textLabel!.text = "Failure Modal (Auto Dismiss + Alert)"
+            cell.textLabel!.text = "⚠️ Failure Modal (Auto Dismiss + Alert)"
         } else if indexPath.row == 6 {
-            cell.textLabel!.text = "Custom Animation"
+            cell.textLabel!.text = "🌈 Custom Loading Animation"
         }
         return cell
     }
