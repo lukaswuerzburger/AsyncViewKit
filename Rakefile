@@ -8,8 +8,8 @@ namespace :test do
   desc 'Run the unit tests'
   task ios: :prepare do
     run('test', 'AsyncViewController', 'Debug', 'iPhone 7', '10.3.1')
-    run('test', 'AsyncViewController', 'Debug', 'iPhone 8 (1st generation)', '11.4')
-    run('test', 'AsyncViewController', 'Debug', 'iPhone Xs (1st generation)', '12.4')
+    run('test', 'AsyncViewController', 'Debug', 'iPhone 8', '11.4')
+    run('test', 'AsyncViewController', 'Debug', 'iPhone Xs', '12.4')
     run('test', 'AsyncViewController', 'Debug', 'iPhone SE (2nd generation)', '13.4.1')
   end
 
