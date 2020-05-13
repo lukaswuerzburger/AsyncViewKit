@@ -1,11 +1,11 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async.png" alt="Flow Diagram" title="Flow Diagram" width="128"  height="128"/><br/>
     <b>AsyncViewController</b><br/>
+    <br/>
     <img src="https://img.shields.io/badge/Swift-5-orange" alt="Swift Version" title="Swift Version"/>
-    <img src="https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop" alt="Build Status" title="Build Status"/>
-    <img src="https://img.shields.io/cocoapods/v/AsyncViewController.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/>
+    <a href="https://travis-ci.org/lukaswuerzburger/AsyncViewController"><img src="https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop" alt="Build Status" title="Build Status"/></a>
+    <a href="https://cocoapods.org/pods/AsyncViewController"><img src="https://img.shields.io/cocoapods/v/AsyncViewController.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/></a>
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT" title="License MIT"/>
-
 </p>
 
 
