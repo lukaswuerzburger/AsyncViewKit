@@ -3,7 +3,7 @@ platform :ios, '9.0'
 target 'AsyncViewController' do
   use_frameworks!
 
-  pod 'Swiftlint'
+  pod 'SwiftLint'
 
   target 'AsyncViewControllerTests' do
     # Pods for testing
