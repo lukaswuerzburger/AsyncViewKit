@@ -1,11 +1,10 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async.png" alt="Flow Diagram" title="Flow Diagram" width="128"  height="128"/><br/>
     <b>AsyncViewController</b><br/>
-    
-[![Swift Version](https://img.shields.io/badge/Swift-5-orange)]()
-[![Build Status](https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop)](https://travis-ci.org/lukaswuerzburger/AsyncViewController)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Cauliframework.svg?style=flat-square)](https://cocoapods.org/pods/Cauliframework)
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/cauliframework/cauli/blob/develop/LICENSE)
+    <img src="https://img.shields.io/badge/Swift-5-orange" alt="Swift Version" title="Swift Version"/>
+    <img src="https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop" alt="Build Status" title="Build Status"/>
+    <img src="https://img.shields.io/cocoapods/v/AsyncViewController.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT" title="License MIT"/>
 
 </p>
 
