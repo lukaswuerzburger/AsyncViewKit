@@ -46,7 +46,7 @@ task default: 'test'
 private
 
 def run(operation, scheme, configuration, device, os)
-    sh("xcodebuild -project AsyncViewController.xcodeproj -scheme '#{scheme}' -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=#{device},OS=#{os}' -configuration #{configuration} clean #{operation}") rescue nil
+    sh("xcodebuild -workspace AsyncViewController.xcworkspace -scheme '#{scheme}' -sdk 'iphonesimulator' -destination 'platform=iOS Simulator,name=#{device},OS=#{os}' -configuration #{configuration} clean #{operation}") rescue nil
     if $?.success?
         succeeded("#{device}, #{os}", operation)
     else

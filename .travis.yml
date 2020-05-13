@@ -6,6 +6,7 @@ before_install:
 
 install:
   - bundle install
+  - pod install
   - cd $TRAVIS_BUILD_DIR
 
 script:

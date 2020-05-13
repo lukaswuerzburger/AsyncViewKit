@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5390C27CC669D333A9003AAE /* Pods_AsyncViewController_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2C2E251DB3B151B6FED0BB /* Pods_AsyncViewController_Demo.framework */; };
 		8A0DCB18246B21C6005B7829 /* AsyncViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0DCB17246B21C6005B7829 /* AsyncViewControllerTests.swift */; };
 		8A0DCB1A246B21C6005B7829 /* AsyncViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC164FC2465894600BBC00D /* AsyncViewController.framework */; };
 		8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */; };
@@ -28,6 +29,8 @@
 		8AC165602465958500BBC00D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC165302465932400BBC00D /* LaunchScreen.storyboard */; };
 		8AC165612465958500BBC00D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC165322465932400BBC00D /* Main.storyboard */; };
 		8AC165632465A91900BBC00D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165622465A91900BBC00D /* DetailViewController.swift */; };
+		BC2CA3B6B1D5333568812C96 /* Pods_AsyncViewController_AsyncViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8C165F0517EB0949586609 /* Pods_AsyncViewController_AsyncViewControllerTests.framework */; };
+		E875A78C9494B1C993272697 /* Pods_AsyncViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFA7714BECC832121EB7AD5 /* Pods_AsyncViewController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D8C165F0517EB0949586609 /* Pods_AsyncViewController_AsyncViewControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController_AsyncViewControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DC8262CDDA3C1FF414EF92 /* Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-AsyncViewControllerTests/Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		6D2C2E251DB3B151B6FED0BB /* Pods_AsyncViewController_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8877A8C4ACC7F698C19F4096 /* Pods-AsyncViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.release.xcconfig"; sourceTree = "<group>"; };
 		8A0DCB0F246B1FB0005B7829 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		8A0DCB10246B2067005B7829 /* Rakefile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Rakefile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8A0DCB15246B21C6005B7829 /* AsyncViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +60,7 @@
 		8A46380E2466E6EA000B963F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
 		8A4CE2B5246C039900179FE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8A4CE2BA246C5A6000179FE6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicy.swift; sourceTree = "<group>"; };
 		8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncViewController+FailureResolution.swift"; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +78,10 @@
 		8AC165622465A91900BBC00D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AsyncViewController.podspec; sourceTree = "<group>"; };
 		8AC165652465AF1000BBC00D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C1FC9355A15EFF643F2733B6 /* Pods-AsyncViewController-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-Demo.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-Demo/Pods-AsyncViewController-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		EBFA7714BECC832121EB7AD5 /* Pods_AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA31A37476CBF5E9D9D4347B /* Pods-AsyncViewController-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-Demo.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-Demo/Pods-AsyncViewController-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		FA966EFB01CC3C1A25A8CD0B /* Pods-AsyncViewController-AsyncViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-AsyncViewControllerTests.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-AsyncViewControllerTests/Pods-AsyncViewController-AsyncViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0DCB1A246B21C6005B7829 /* AsyncViewController.framework in Frameworks */,
+				BC2CA3B6B1D5333568812C96 /* Pods_AsyncViewController_AsyncViewControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E875A78C9494B1C993272697 /* Pods_AsyncViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,12 +106,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5390C27CC669D333A9003AAE /* Pods_AsyncViewController_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		493DEEB29B895AAD0740B805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBFA7714BECC832121EB7AD5 /* Pods_AsyncViewController.framework */,
+				2D8C165F0517EB0949586609 /* Pods_AsyncViewController_AsyncViewControllerTests.framework */,
+				6D2C2E251DB3B151B6FED0BB /* Pods_AsyncViewController_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8A0DCB16246B21C6005B7829 /* AsyncViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +135,7 @@
 		8AC164F22465894600BBC00D = {
 			isa = PBXGroup;
 			children = (
+				8A4CE2BA246C5A6000179FE6 /* .swiftlint.yml */,
 				8A4CE2B5246C039900179FE6 /* .gitignore */,
 				8A0DCB0F246B1FB0005B7829 /* .travis.yml */,
 				8A0DCB10246B2067005B7829 /* Rakefile */,
@@ -120,6 +147,8 @@
 				8A0DCB16246B21C6005B7829 /* AsyncViewControllerTests */,
 				8AC1652D2465932400BBC00D /* AsyncViewController-Demo */,
 				8AC164FD2465894600BBC00D /* Products */,
+				F9C2D55302E50E2C77261DD3 /* Pods */,
+				493DEEB29B895AAD0740B805 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +216,19 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F9C2D55302E50E2C77261DD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */,
+				8877A8C4ACC7F698C19F4096 /* Pods-AsyncViewController.release.xcconfig */,
+				30DC8262CDDA3C1FF414EF92 /* Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig */,
+				FA966EFB01CC3C1A25A8CD0B /* Pods-AsyncViewController-AsyncViewControllerTests.release.xcconfig */,
+				FA31A37476CBF5E9D9D4347B /* Pods-AsyncViewController-Demo.debug.xcconfig */,
+				C1FC9355A15EFF643F2733B6 /* Pods-AsyncViewController-Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -205,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A0DCB1D246B21C6005B7829 /* Build configuration list for PBXNativeTarget "AsyncViewControllerTests" */;
 			buildPhases = (
+				060D0C1B4AB3B0D446AC5954 /* [CP] Check Pods Manifest.lock */,
 				8A0DCB11246B21C6005B7829 /* Sources */,
 				8A0DCB12246B21C6005B7829 /* Frameworks */,
 				8A0DCB13246B21C6005B7829 /* Resources */,
@@ -223,10 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AC165042465894600BBC00D /* Build configuration list for PBXNativeTarget "AsyncViewController" */;
 			buildPhases = (
+				86647499C1223721EE084EC1 /* [CP] Check Pods Manifest.lock */,
 				8AC164F72465894600BBC00D /* Headers */,
 				8AC164F82465894600BBC00D /* Sources */,
 				8AC164F92465894600BBC00D /* Frameworks */,
 				8AC164FA2465894600BBC00D /* Resources */,
+				8A4CE2B7246C58C600179FE6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -241,6 +286,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AC165582465938000BBC00D /* Build configuration list for PBXNativeTarget "AsyncViewController-Demo" */;
 			buildPhases = (
+				AA5E8BF78DD02981B92D5877 /* [CP] Check Pods Manifest.lock */,
 				8AC165412465937F00BBC00D /* Sources */,
 				8AC165422465937F00BBC00D /* Frameworks */,
 				8AC165432465937F00BBC00D /* Resources */,
@@ -323,6 +369,93 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		060D0C1B4AB3B0D446AC5954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsyncViewController-AsyncViewControllerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86647499C1223721EE084EC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsyncViewController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4CE2B7246C58C600179FE6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		AA5E8BF78DD02981B92D5877 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsyncViewController-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A0DCB11246B21C6005B7829 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -393,6 +526,7 @@
 /* Begin XCBuildConfiguration section */
 		8A0DCB1E246B21C6005B7829 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30DC8262CDDA3C1FF414EF92 /* Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UE4U5XA7R9;
@@ -410,6 +544,7 @@
 		};
 		8A0DCB1F246B21C6005B7829 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA966EFB01CC3C1A25A8CD0B /* Pods-AsyncViewController-AsyncViewControllerTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UE4U5XA7R9;
@@ -549,6 +684,7 @@
 		};
 		8AC165052465894600BBC00D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -572,6 +708,7 @@
 		};
 		8AC165062465894600BBC00D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8877A8C4ACC7F698C19F4096 /* Pods-AsyncViewController.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -594,6 +731,7 @@
 		};
 		8AC165592465938000BBC00D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA31A37476CBF5E9D9D4347B /* Pods-AsyncViewController-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -611,6 +749,7 @@
 		};
 		8AC1655A2465938000BBC00D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1FC9355A15EFF643F2733B6 /* Pods-AsyncViewController-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

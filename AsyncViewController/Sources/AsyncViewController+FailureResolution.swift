@@ -9,7 +9,7 @@
 import UIKit
 
 extension AsyncViewController {
-    
+
     public enum FailureResolution {
         case showViewController(UIViewController)
         case custom((AsyncViewController<VC, T, E>) -> Void)
