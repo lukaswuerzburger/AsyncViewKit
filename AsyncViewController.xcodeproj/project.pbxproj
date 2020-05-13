@@ -52,7 +52,6 @@
 		8A46380E2466E6EA000B963F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
 		8A4CE2B5246C039900179FE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		8A4CE2B6246C071900179FE6 /* Dangerfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Dangerfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicy.swift; sourceTree = "<group>"; };
 		8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncViewController+FailureResolution.swift"; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +112,6 @@
 				8A4CE2B5246C039900179FE6 /* .gitignore */,
 				8A0DCB0F246B1FB0005B7829 /* .travis.yml */,
 				8A0DCB10246B2067005B7829 /* Rakefile */,
-				8A4CE2B6246C071900179FE6 /* Dangerfile */,
 				8A0DCB20246B257C005B7829 /* Gemfile */,
 				8AC165652465AF1000BBC00D /* README.md */,
 				8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */,
