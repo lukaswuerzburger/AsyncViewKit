@@ -37,15 +37,23 @@ Imagine a *BookViewController*:
 class BookViewController: UIViewController {
 
     var book: Book?
+    // Having the represented object for this view controller as an optional is inconvenient.
+    
     var loadingView: LoadingView?
+    // Also having the loading view in here is inconvenient since we only need it once in the beginning.
     
     init(bookId: Int) {
         super.init(...)
         
         // Load the book here
         MyLibrary.loadBook(id: bookId) { result in
-            ...
+            // Refresh UI
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Then you initialize your UI, first without data but after loading again with data.
     }
 }
 ```
