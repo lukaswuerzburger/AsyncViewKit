@@ -1,5 +1,10 @@
 # AsyncViewController
 
+[![Swift Version](https://img.shields.io/badge/Swift-5-orange)]()
+[![Build Status](https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop)](https://travis-ci.org/lukaswuerzburger/AsyncViewController)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Cauliframework.svg?style=flat-square)](https://cocoapods.org/pods/Cauliframework)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/cauliframework/cauli/blob/develop/LICENSE)
+
 ## Contents
 
 - ✍️ [Description](#%EF%B8%8F-description)
