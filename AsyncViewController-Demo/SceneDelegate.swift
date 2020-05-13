@@ -12,4 +12,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
     var window: UIWindow?
 }
-

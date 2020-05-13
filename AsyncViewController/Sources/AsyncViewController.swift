@@ -11,22 +11,22 @@ import UIKit
 open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewController {
 
     // MARK: - UI Elements
-    
+
     public var loadingViewController: LoadingAnimatable = LoadingViewController()
-    private(set) public var successViewController: VC? = nil
+    private(set) public var successViewController: VC?
     private var destinationViewController: UIViewController?
-    
+
     // MARK: - Variables
-    
+
     public var navigationItemOverridePolicy: NavigationItemOverridePolicy = []
     public var fadesInResultingViewAfterLoading: Bool = true
-    
+
     private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
     private var successClosure: (T) -> VC
     private var failureClosure: (E) -> FailureResolution
 
     // MARK: - Initializer
-    
+
     required public init(
         load: @escaping (@escaping (Result<T, E>) -> Void) -> Void,
         success: @escaping (T) -> VC,
@@ -43,26 +43,26 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     }
 
     // MARK: - View Life Cycle
-    
+
     open override func loadView() {
         super.loadView()
         view.backgroundColor = .white
     }
-    
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         reload()
     }
-    
+
     // MARK: - View Helpers
-    
+
     private func addDestinationViewController(_ viewController: UIViewController) {
         destinationViewController = viewController
         addViewController(viewController)
         animateFadeInIfNeeded(for: viewController)
         overrideNavigationItemIfNeeded(viewController)
     }
-    
+
     private func addViewController(_ viewController: UIViewController) {
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         addChild(viewController)
@@ -71,11 +71,11 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
             viewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             viewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
             viewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-            viewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         viewController.didMove(toParent: self)
     }
-    
+
     private func animateFadeInIfNeeded(for viewController: UIViewController) {
         guard fadesInResultingViewAfterLoading else { return }
         viewController.view.alpha = 0
@@ -83,7 +83,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
             viewController.view.alpha = 1
         }
     }
-    
+
     private func overrideNavigationItemIfNeeded(_ viewController: UIViewController) {
         if navigationItemOverridePolicy.contains(.leftBarButtonItems) {
             navigationItem.leftBarButtonItems = viewController.navigationItem.leftBarButtonItems
@@ -101,20 +101,20 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
         guard let viewController = destinationViewController else { return }
         remove(viewController)
     }
-    
+
     private func remove(_ viewController: UIViewController) {
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
     }
-    
+
     // MARK: - Life Cycle Hooks
-    
+
     open func didLoadViewController(_ viewController: VC) {}
-    
+
     open func didFailLoading(_ error: E) {}
-    
+
     // MARK: - Networking
-    
+
     public func reload() {
         removeDestinationViewControllerIfNeeded()
         addViewController(loadingViewController)
@@ -126,7 +126,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
             self.handleReload(result: result)
         }
     }
-    
+
     private func handleReload(result: Result<T, E>) {
         switch result {
         case .success(let model):
