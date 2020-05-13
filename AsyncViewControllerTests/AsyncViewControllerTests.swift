@@ -7,27 +7,206 @@
 //
 
 import XCTest
+@testable import AsyncViewController
 
 class AsyncViewControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    enum MyError: Int, Error, Equatable {
+        case loadingFailed
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    class MockAsyncViewController: AsyncViewController<UIViewController, String, MyError> {
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        var didCallDidLoadViewController = false
+        var didCallDidFailLoading = false
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+        override func didLoadViewController(_ viewController: UIViewController) {
+            super.didLoadViewController(viewController)
+            didCallDidLoadViewController = true
+        }
+
+        override func didFailLoading(_ error: MyError) {
+            super.didFailLoading(error)
+            didCallDidFailLoading = true
         }
     }
 
+    // MARK: - Tests
+
+    func testSetupDidAssignViewController() {
+        let asyncViewController = AsyncViewController(load: { _ in
+        }, success: { _ -> UIViewController in
+            .init()
+        }, failure: { _ -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+            .showViewController(.init())
+        })
+        XCTAssertNotNil(asyncViewController)
+    }
+
+    func testExecutesLoadingClosureWhenViewDidLoad() {
+        let expect = expectation(description: "Loading closure should be called")
+        let _: AsyncViewController<UIViewController, String, Error> = presentAsyncViewController(load: { _ in
+            expect.fulfill()
+        })
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testExecutesSuccessClosureWithResultOnSuccess() {
+        let expect = expectation(description: "Success closure should be called")
+        let _: AsyncViewController<UIViewController, String, Error> = presentAsyncViewController(load: { callback in
+            callback(.success("Hello"))
+        }, success: { string -> UIViewController in
+            XCTAssertEqual(string, "Hello")
+            expect.fulfill()
+            return .init()
+        })
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testExecutesFailureClosureWithResultOnError() {
+        let expect = expectation(description: "Failure closure should be called")
+        presentAsyncViewController(load: { callback in
+            callback(.failure(.loadingFailed))
+        }, failure: { error -> AsyncViewController<UIViewController, String, MyError>.FailureResolution in
+            XCTAssertEqual(.loadingFailed, error)
+            expect.fulfill()
+            return .showViewController(.init())
+        })
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testNavigationItemOverridePolicyIsSkippedWhenEmpty() {
+        let leftBarButtonItem = UIBarButtonItem()
+        let title = String()
+        let rightBarButtonItem = UIBarButtonItem()
+        let viewController = UIViewController()
+        viewController.navigationItem.leftBarButtonItem = leftBarButtonItem
+        viewController.navigationItem.title = title
+        viewController.navigationItem.rightBarButtonItem = rightBarButtonItem
+        let asyncViewController: AsyncViewController<UIViewController, String, Error> = presentAsyncViewController(load: { callback in
+            callback(.success("Hello"))
+        }, success: { _ -> UIViewController in
+            return viewController
+        })
+        XCTAssertEqual(viewController, asyncViewController.successViewController)
+        XCTAssertNotEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
+        XCTAssertNotEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
+        XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
+        asyncViewController.navigationItemOverridePolicy = [
+            .leftBarButtonItems
+        ]
+        asyncViewController.reload()
+        XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
+        XCTAssertNotEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
+        XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
+        asyncViewController.navigationItemOverridePolicy = [
+            .title
+        ]
+        asyncViewController.reload()
+        XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
+        XCTAssertEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
+        XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
+        asyncViewController.navigationItemOverridePolicy = [
+            .rightBarButtonItems
+        ]
+        asyncViewController.reload()
+        XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
+        XCTAssertEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
+        XCTAssertEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
+    }
+
+    func testSuccessLifeCycleHookGetsCalled() {
+        let mock = presentMockAsyncViewController(result: .success("Hello"))
+        XCTAssertTrue(mock.didCallDidLoadViewController)
+    }
+
+    func testFailureLifeCycleHookGetsCalled() {
+        let mock = presentMockAsyncViewController(result: .failure(.loadingFailed))
+        XCTAssertTrue(mock.didCallDidFailLoading)
+    }
+
+    func testCustomFailureResolutionGetsCalled() {
+        let expect = expectation(description: "Custom failure closure should be called")
+        presentAsyncViewController(load: { callback in
+            callback(.failure(MyError.loadingFailed))
+        }, failure: { _ -> AsyncViewController<UIViewController, String, MyError>.FailureResolution in
+            .custom { _ in
+                expect.fulfill()
+            }
+        })
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testLoadingViewStartsLoading() {
+        let expect = expectation(description: "Success closure should be called")
+        var asyncViewController: AsyncViewController<UIViewController, String, Error>!
+        asyncViewController = presentAsyncViewController(load: { callback in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                callback(.success("Hello"))
+            }
+        }, success: { _ -> UIViewController in
+            XCTAssertFalse(asyncViewController.loadingViewController.isAnimating)
+            expect.fulfill()
+            return .init()
+        }, autoPresent: false)
+        XCTAssertFalse(asyncViewController.loadingViewController.isAnimating)
+        asyncViewController.loadView()
+        asyncViewController.viewDidLoad()
+        XCTAssertTrue(asyncViewController.loadingViewController.isAnimating)
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testPresentsSuccessViewControllerOnSuccess() {
+        let successViewController = UIViewController()
+        let asyncViewController: AsyncViewController<UIViewController, String, Error> = presentAsyncViewController(load: { callback in
+            callback(.success("Hallo"))
+        }, success: { _ -> UIViewController in
+            return successViewController
+        })
+        XCTAssertEqual(asyncViewController.successViewController, successViewController)
+        XCTAssertTrue(asyncViewController.children.contains(successViewController))
+        XCTAssertTrue(asyncViewController.view.subviews.contains(successViewController.view))
+    }
+
+    func testPresentsFailureViewControllerOnSuccess() {
+        let errorViewController = UIViewController()
+        let asyncViewController: AsyncViewController<UIViewController, String, Error> = presentAsyncViewController(load: { callback in
+            callback(.failure(MyError.loadingFailed))
+        }, failure: { _ -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+            .showViewController(errorViewController)
+        })
+        XCTAssertNil(asyncViewController.successViewController)
+        XCTAssertTrue(asyncViewController.children.contains(errorViewController))
+        XCTAssertTrue(asyncViewController.view.subviews.contains(errorViewController.view))
+    }
+
+    // MARK: - Helper
+
+    @discardableResult func presentAsyncViewController<T, E>(load: @escaping (@escaping (Result<T, E>) -> Void) -> Void, success: ((T) -> UIViewController)? = nil, failure: ((E) -> AsyncViewController<UIViewController, T, E>.FailureResolution)? = nil, autoPresent: Bool = true) -> AsyncViewController<UIViewController, T, E> {
+        let asyncViewController = AsyncViewController(load: { callback in
+            load(callback)
+        }, success: { object -> UIViewController in
+            return success?(object) ?? .init()
+        }, failure: { error -> AsyncViewController<UIViewController, T, E>.FailureResolution in
+            return failure?(error) ?? .showViewController(.init())
+        })
+        if autoPresent {
+            asyncViewController.loadView()
+            asyncViewController.viewDidLoad()
+        }
+        return asyncViewController
+    }
+
+    @discardableResult func presentMockAsyncViewController(result: Result<String, MyError>) -> MockAsyncViewController {
+        let mockAsyncViewController = MockAsyncViewController(load: { callback in
+            callback(result)
+        }, success: { _ -> UIViewController in
+            .init()
+        }, failure: { _ -> MockAsyncViewController.FailureResolution in
+            .showViewController(.init())
+        })
+        mockAsyncViewController.loadView()
+        mockAsyncViewController.viewDidLoad()
+        return mockAsyncViewController
+    }
 }

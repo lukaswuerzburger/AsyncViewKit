@@ -15,6 +15,8 @@
 		8A4638102466E71B000B963F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46380E2466E6EA000B963F /* LoadingViewController.swift */; };
 		8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
 		8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4638112466E74B000B963F /* LoadingAnimatable.swift */; };
+		8A4CE2BC246C76ED00179FE6 /* LoadingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */; };
+		8A4CE2BE246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */; };
 		8A61829224686025004383B3 /* NavigationItemOverridePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */; };
 		8A61829424686056004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
 		8A6182952468606B004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
@@ -61,6 +63,8 @@
 		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
 		8A4CE2B5246C039900179FE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8A4CE2BA246C5A6000179FE6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewControllerTests.swift; sourceTree = "<group>"; };
+		8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicyTests.swift; sourceTree = "<group>"; };
 		8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicy.swift; sourceTree = "<group>"; };
 		8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncViewController+FailureResolution.swift"; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				8A0DCB17246B21C6005B7829 /* AsyncViewControllerTests.swift */,
+				8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */,
+				8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */,
 				8A0DCB19246B21C6005B7829 /* Info.plist */,
 			);
 			path = AsyncViewControllerTests;
@@ -461,6 +467,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4CE2BC246C76ED00179FE6 /* LoadingViewControllerTests.swift in Sources */,
+				8A4CE2BE246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift in Sources */,
 				8A0DCB18246B21C6005B7829 /* AsyncViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
