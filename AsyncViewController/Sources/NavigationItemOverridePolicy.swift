@@ -14,7 +14,7 @@ public struct NavigationItemOverridePolicy: OptionSet {
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    
+
     static public let leftBarButtonItems = NavigationItemOverridePolicy(rawValue: 1 << 0)
     static public let title = NavigationItemOverridePolicy(rawValue: 1 << 1)
     static public let rightBarButtonItems = NavigationItemOverridePolicy(rawValue: 1 << 2)

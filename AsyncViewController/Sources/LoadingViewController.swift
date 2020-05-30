@@ -9,9 +9,9 @@
 import UIKit
 
 public class LoadingViewController: UIViewController, LoadingAnimatable {
-    
+
     // MARK: - UI Elements
-    
+
     public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     public let activityLabel = UILabel()
 
@@ -21,20 +21,20 @@ public class LoadingViewController: UIViewController, LoadingAnimatable {
         super.init(nibName: nil, bundle: nil)
         activityLabel.text = loadingTitle
     }
-    
+
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - View Life Cycle
-    
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
     // MARK: - View Setup
-    
+
     private func setupView() {
         view.backgroundColor = .white
         setupActivityIndicatorView()
@@ -46,10 +46,10 @@ public class LoadingViewController: UIViewController, LoadingAnimatable {
         view.addSubview(activityIndicatorView)
         NSLayoutConstraint.activate([
             activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-    
+
     private func setupLabel() {
         activityLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityLabel)
@@ -62,15 +62,15 @@ public class LoadingViewController: UIViewController, LoadingAnimatable {
     }
 
     // MARK: - Loading Animatable
-    
+
     public var isAnimating: Bool {
         return activityIndicatorView.isAnimating
     }
-    
+
     public func startLoadingAnimation() {
         activityIndicatorView.startAnimating()
     }
-    
+
     public func stopLoadingAnimation() {
         activityIndicatorView.stopAnimating()
     }

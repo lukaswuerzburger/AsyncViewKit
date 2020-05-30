@@ -1,4 +1,13 @@
-# AsyncViewController
+<p align="center">
+    <img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async.png" alt="Flow Diagram" title="Flow Diagram" width="128"  height="128"/><br/>
+    <b>AsyncViewController</b><br/>
+    <br/>
+    <img src="https://img.shields.io/badge/Swift-5-orange" alt="Swift Version" title="Swift Version"/>
+    <a href="https://travis-ci.org/lukaswuerzburger/AsyncViewController"><img src="https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop" alt="Build Status" title="Build Status"/></a>
+    <a href="https://cocoapods.org/pods/AsyncViewController"><img src="https://img.shields.io/cocoapods/v/AsyncViewController.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/></a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT" title="License MIT"/>
+</p>
+
 
 ## Contents
 
@@ -28,15 +37,23 @@ Imagine a *BookViewController*:
 class BookViewController: UIViewController {
 
     var book: Book?
+    // Having the represented object for this view controller as an optional is inconvenient.
+    
     var loadingView: LoadingView?
+    // Also having the loading view in here is inconvenient since we only need it once in the beginning.
     
     init(bookId: Int) {
         super.init(...)
         
         // Load the book here
         MyLibrary.loadBook(id: bookId) { result in
-            ...
+            // Refresh UI
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Then you initialize your UI, first without data but after loading again with data.
     }
 }
 ```

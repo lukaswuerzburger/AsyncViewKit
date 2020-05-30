@@ -9,18 +9,18 @@
 import UIKit
 
 class CustomLoadingViewController: UIViewController, LoadingAnimatable {
-    
+
     // MARK: - UI Elements
-    
+
     let dot = UIView()
     var centerConstraint: NSLayoutConstraint!
 
     // MARK: - Variables
-    
+
     var isAnimating: Bool = false
-    
+
     // MARK: - View Life Cycle
-    
+
     override func loadView() {
         super.loadView()
         dot.translatesAutoresizingMaskIntoConstraints = false
@@ -37,33 +37,33 @@ class CustomLoadingViewController: UIViewController, LoadingAnimatable {
         ])
         view.layoutIfNeeded()
     }
-    
+
     // MARK: - Animations
-    
+
     func animate() {
         centerConstraint.constant = 30
         view.setNeedsUpdateConstraints()
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
-        }) { finished in
+        }, completion: { finished in
             guard finished else { return }
             self.centerConstraint.constant = -30
             self.view.setNeedsUpdateConstraints()
             UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
                 self.view.layoutIfNeeded()
-            }) { finished in
+            }, completion: { finished in
                 guard finished else { return }
                 self.animate()
-            }
-        }
+            })
+        })
     }
 
     // MARK: - Loading Animatable
-    
+
     func startLoadingAnimation() {
         animate()
     }
-    
+
     func stopLoadingAnimation() {
         view.layer.removeAllAnimations()
     }

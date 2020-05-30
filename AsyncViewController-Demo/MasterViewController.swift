@@ -14,7 +14,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         clearsSelectionOnViewWillAppear = true
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 9
     }
@@ -42,7 +42,7 @@ class MasterViewController: UITableViewController {
         }
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             presentSuccessPush()
@@ -64,9 +64,9 @@ class MasterViewController: UITableViewController {
             presentCustomNavigationOverride()
         }
     }
-    
+
     // MARK: - Helper
-    
+
     func successViewController() -> AsyncViewController<UIViewController, String, Error> {
         let viewController = AsyncViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -74,12 +74,12 @@ class MasterViewController: UITableViewController {
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
             return .showViewController(self.errorViewController(error: error))
-        }
+        })
         return viewController
     }
-    
+
     func failureViewController(_ failureBlock: @escaping (Error) -> AsyncViewController<UIViewController, String, Error>.FailureResolution) -> UIViewController {
         let viewController = AsyncViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -87,12 +87,12 @@ class MasterViewController: UITableViewController {
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
             return failureBlock(error)
-        }
+        })
         return viewController
     }
-    
+
     func customAnimationViewController() -> UIViewController {
         let viewController = AsyncViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -100,33 +100,33 @@ class MasterViewController: UITableViewController {
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }) { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
             return .showViewController(self.errorViewController(error: error))
-        }
+        })
         viewController.loadingViewController = CustomLoadingViewController()
         return viewController
     }
-    
+
     func viewController(title: String) -> UIViewController {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "detail") as! DetailViewController
-        viewController.title = title
-        return viewController
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "detail") as? DetailViewController
+        viewController!.title = title
+        return viewController!
     }
-    
+
     func errorViewController(error: Error) -> UIViewController {
         return viewController(title: "⚠️ Something went wrong:\n\n" + error.localizedDescription)
     }
-    
+
     func presentSuccessPush() {
         navigationController?.pushViewController(successViewController(), animated: true)
     }
-    
+
     func presentSuccessModal() {
         presentModalViewController(viewController: successViewController())
     }
-    
+
     func presentFailurePush(autoDismiss: Bool = false) {
-        let vc = failureViewController({ error in
+        let viewController = failureViewController({ error in
             if autoDismiss {
                 return .custom({ asyncViewController in
                     asyncViewController.navigationController?.popToRootViewController(animated: true)
@@ -136,11 +136,11 @@ class MasterViewController: UITableViewController {
                 return .showViewController(self.errorViewController(error: error))
             }
         })
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func presentFailureModal(autoDismiss: Bool = false) {
-        let vc = failureViewController({ error in
+        let viewController = failureViewController({ error in
             if autoDismiss {
                 return .custom({ asyncViewController in
                     asyncViewController.dismiss(animated: true)
@@ -150,20 +150,20 @@ class MasterViewController: UITableViewController {
                 return .showViewController(self.errorViewController(error: error))
             }
         })
-        presentModalViewController(viewController: vc)
+        presentModalViewController(viewController: viewController)
     }
-    
+
     func presentCustomAnimation() {
         navigationController?.pushViewController(customAnimationViewController(), animated: true)
     }
-    
+
     func presentNavigationOverride() {
         let viewController = successViewController()
         viewController.title = "Loading"
         viewController.navigationItemOverridePolicy = .all
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func presentCustomNavigationOverride() {
         let viewController = successViewController()
         viewController.title = "Loading"
@@ -171,18 +171,18 @@ class MasterViewController: UITableViewController {
         viewController.navigationItemOverridePolicy = .rightBarButtonItems
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func presentModalViewController(viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
         present(navigationController, animated: true)
     }
-    
+
     @objc func dismissViewController() {
         presentedViewController?.dismiss(animated: true)
     }
-    
+
     func presentErrorAlert(_ error: Error) {
         let alert = UIAlertController(title: "⚠️ Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(.init(title: "Dismiss", style: .cancel))
