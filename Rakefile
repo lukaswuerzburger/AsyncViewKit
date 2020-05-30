@@ -10,12 +10,12 @@ namespace :test do
     run('test', 'AsyncViewController', 'Debug', 'iPhone 7', '10.3.1')
     run('test', 'AsyncViewController', 'Debug', 'iPhone 8', '11.4')
     run('test', 'AsyncViewController', 'Debug', 'iPhone Xs', '12.4')
-    run('test', 'AsyncViewController', 'Debug', 'iPhone SE (2nd generation)', '13.4.1')
+    run('test', 'AsyncViewController', 'Debug', 'iPhone SE (2nd generation)', '13.5')
   end
 
   desc 'Build the Demo App'
   task ios_example: :prepare do
-    run('build', 'AsyncViewController-Demo', 'Release', 'iPhone SE (2nd generation)', '13.4.1')
+    run('build', 'AsyncViewController-Demo', 'Release', 'iPhone SE (2nd generation)', '13.5')
   end
 end
 
