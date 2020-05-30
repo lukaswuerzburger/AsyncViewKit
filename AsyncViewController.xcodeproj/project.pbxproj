@@ -18,8 +18,6 @@
 		8A4CE2BC246C76ED00179FE6 /* LoadingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */; };
 		8A4CE2BE246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */; };
 		8A61829224686025004383B3 /* NavigationItemOverridePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */; };
-		8A61829424686056004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
-		8A6182952468606B004383B3 /* AsyncViewController+FailureResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */; };
 		8A61829624686073004383B3 /* NavigationItemOverridePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */; };
 		8AC165012465894600BBC00D /* AsyncViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AC164FF2465894600BBC00D /* AsyncViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncViewController.swift */; };
@@ -51,22 +49,15 @@
 		5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.debug.xcconfig"; sourceTree = "<group>"; };
 		6D2C2E251DB3B151B6FED0BB /* Pods_AsyncViewController_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8877A8C4ACC7F698C19F4096 /* Pods-AsyncViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.release.xcconfig"; sourceTree = "<group>"; };
-		8A0DCB0F246B1FB0005B7829 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
-		8A0DCB10246B2067005B7829 /* Rakefile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Rakefile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8A0DCB15246B21C6005B7829 /* AsyncViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0DCB17246B21C6005B7829 /* AsyncViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewControllerTests.swift; sourceTree = "<group>"; };
 		8A0DCB19246B21C6005B7829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A0DCB20246B257C005B7829 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8A46380B2466AF15000B963F /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingViewController.swift; sourceTree = "<group>"; };
 		8A46380E2466E6EA000B963F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		8A4638112466E74B000B963F /* LoadingAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimatable.swift; sourceTree = "<group>"; };
-		8A4CE2B5246C039900179FE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		8A4CE2BA246C5A6000179FE6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewControllerTests.swift; sourceTree = "<group>"; };
 		8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicyTests.swift; sourceTree = "<group>"; };
 		8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemOverridePolicy.swift; sourceTree = "<group>"; };
-		8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncViewController+FailureResolution.swift"; sourceTree = "<group>"; };
 		8AC164FC2465894600BBC00D /* AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC164FF2465894600BBC00D /* AsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncViewController.h; sourceTree = "<group>"; };
 		8AC165002465894600BBC00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,8 +71,6 @@
 		8AC165372465932400BBC00D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8AC165452465937F00BBC00D /* AsyncViewController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AsyncViewController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC165622465A91900BBC00D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AsyncViewController.podspec; sourceTree = "<group>"; };
-		8AC165652465AF1000BBC00D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1FC9355A15EFF643F2733B6 /* Pods-AsyncViewController-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-Demo.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-Demo/Pods-AsyncViewController-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		EBFA7714BECC832121EB7AD5 /* Pods_AsyncViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA31A37476CBF5E9D9D4347B /* Pods-AsyncViewController-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-Demo.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-Demo/Pods-AsyncViewController-Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,14 +130,6 @@
 		8AC164F22465894600BBC00D = {
 			isa = PBXGroup;
 			children = (
-				8A4CE2BA246C5A6000179FE6 /* .swiftlint.yml */,
-				8A4CE2B5246C039900179FE6 /* .gitignore */,
-				8A0DCB0F246B1FB0005B7829 /* .travis.yml */,
-				8A0DCB10246B2067005B7829 /* Rakefile */,
-				8A0DCB20246B257C005B7829 /* Gemfile */,
-				8AC165652465AF1000BBC00D /* README.md */,
-				8AC165642465AC7C00BBC00D /* AsyncViewController.podspec */,
-				8A46380B2466AF15000B963F /* Package.swift */,
 				8AC1652C2465930F00BBC00D /* AsyncViewController */,
 				8A0DCB16246B21C6005B7829 /* AsyncViewControllerTests */,
 				8AC1652D2465932400BBC00D /* AsyncViewController-Demo */,
@@ -181,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				8AC165082465899700BBC00D /* AsyncViewController.swift */,
-				8A61829324686056004383B3 /* AsyncViewController+FailureResolution.swift */,
 				8A46380E2466E6EA000B963F /* LoadingViewController.swift */,
 				8A4638112466E74B000B963F /* LoadingAnimatable.swift */,
 				8A61829124686025004383B3 /* NavigationItemOverridePolicy.swift */,
@@ -481,7 +461,6 @@
 				8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */,
 				8AC165092465899700BBC00D /* AsyncViewController.swift in Sources */,
 				8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */,
-				8A61829424686056004383B3 /* AsyncViewController+FailureResolution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +474,6 @@
 				8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */,
 				8AC165632465A91900BBC00D /* DetailViewController.swift in Sources */,
 				8AC1655B2465957600BBC00D /* AsyncViewController.swift in Sources */,
-				8A6182952468606B004383B3 /* AsyncViewController+FailureResolution.swift in Sources */,
 				8A4638132466E7DA000B963F /* LoadingAnimatable.swift in Sources */,
 				8A61829624686073004383B3 /* NavigationItemOverridePolicy.swift in Sources */,
 				8AC1655D2465957C00BBC00D /* SceneDelegate.swift in Sources */,

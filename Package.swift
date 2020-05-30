@@ -11,10 +11,20 @@ let package = Package(
         .iOS(.v9)
     ],
     products: [
-        .library(name: "AsyncViewController", targets: ["AsyncViewController"])
+        .library(
+            name: "AsyncViewController",
+            targets: ["AsyncViewController"]
+        )
     ],
     targets: [
-        .target(name: "AsyncViewController", dependencies: [], path: "AsyncViewController")
+        .target(
+            name: "AsyncViewController",
+            path: "AsyncViewController"
+        )
     ],
-    swiftLanguageVersions: [.v4, .v4_2, .v5]
+    swiftLanguageVersions: [
+        .v4,
+        .v4_2,
+        .v5
+    ]
 )

@@ -10,6 +10,18 @@ import UIKit
 
 open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewController {
 
+    public enum State {
+        case idle
+        case loading
+        case succeeded
+        case failed
+    }
+
+    public enum FailureResolution {
+        case showViewController(UIViewController)
+        case custom((AsyncViewController<VC, T, E>) -> Void)
+    }
+
     // MARK: - UI Elements
 
     public var loadingViewController: LoadingAnimatable = LoadingViewController()
@@ -20,6 +32,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
 
     public var navigationItemOverridePolicy: NavigationItemOverridePolicy = []
     public var fadesInResultingViewAfterLoading: Bool = true
+    public var state: State = .idle
 
     private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
     private var successClosure: (T) -> VC
@@ -116,6 +129,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     // MARK: - Networking
 
     public func reload() {
+        state = .loading
         removeDestinationViewControllerIfNeeded()
         addViewController(loadingViewController)
         loadingViewController.startLoadingAnimation()
@@ -130,11 +144,13 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     private func handleReload(result: Result<T, E>) {
         switch result {
         case .success(let model):
+            state = .succeeded
             let viewController = successClosure(model)
             successViewController = viewController
             didLoadViewController(viewController)
             addDestinationViewController(viewController)
         case .failure(let error):
+            state = .failed
             didFailLoading(error)
             switch failureClosure(error) {
             case .showViewController(let viewController):

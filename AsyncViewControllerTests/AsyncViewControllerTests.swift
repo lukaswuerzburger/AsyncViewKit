@@ -92,23 +92,17 @@ class AsyncViewControllerTests: XCTestCase {
         XCTAssertNotEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
         XCTAssertNotEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
         XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
-        asyncViewController.navigationItemOverridePolicy = [
-            .leftBarButtonItems
-        ]
+        asyncViewController.navigationItemOverridePolicy = .leftBarButtonItems
         asyncViewController.reload()
         XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
         XCTAssertNotEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
         XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
-        asyncViewController.navigationItemOverridePolicy = [
-            .title
-        ]
+        asyncViewController.navigationItemOverridePolicy = .title
         asyncViewController.reload()
         XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
         XCTAssertEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
         XCTAssertNotEqual(viewController.navigationItem.rightBarButtonItems, asyncViewController.navigationItem.rightBarButtonItems)
-        asyncViewController.navigationItemOverridePolicy = [
-            .rightBarButtonItems
-        ]
+        asyncViewController.navigationItemOverridePolicy = .rightBarButtonItems
         asyncViewController.reload()
         XCTAssertEqual(viewController.navigationItem.leftBarButtonItems, asyncViewController.navigationItem.leftBarButtonItems)
         XCTAssertEqual(viewController.navigationItem.title, asyncViewController.navigationItem.title)
@@ -178,6 +172,44 @@ class AsyncViewControllerTests: XCTestCase {
         XCTAssertNil(asyncViewController.successViewController)
         XCTAssertTrue(asyncViewController.children.contains(errorViewController))
         XCTAssertTrue(asyncViewController.view.subviews.contains(errorViewController.view))
+    }
+
+    func testStateCycleWithSuccess() {
+        let expect = expectation(description: "Success closure should be called")
+        var asyncViewController: AsyncViewController<UIViewController, String, Error>!
+        asyncViewController = presentAsyncViewController(load: { callback in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                callback(.success("Hello"))
+            }
+        }, success: { _ -> UIViewController in
+            XCTAssertEqual(asyncViewController.state, .succeeded)
+            expect.fulfill()
+            return .init()
+        }, autoPresent: false)
+        XCTAssertEqual(asyncViewController.state, .idle)
+        asyncViewController.loadView()
+        asyncViewController.viewDidLoad()
+        XCTAssertEqual(asyncViewController.state, .loading)
+        wait(for: [expect], timeout: 1)
+    }
+
+    func testStateCycleWithFailure() {
+        let expect = expectation(description: "Success closure should be called")
+        var asyncViewController: AsyncViewController<UIViewController, String, MyError>!
+        asyncViewController = presentAsyncViewController(load: { callback in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                callback(.failure(.loadingFailed))
+            }
+        }, failure: { _ -> AsyncViewController<UIViewController, String, MyError>.FailureResolution in
+            XCTAssertEqual(asyncViewController.state, .failed)
+            expect.fulfill()
+            return .showViewController(.init())
+        }, autoPresent: false)
+        XCTAssertEqual(asyncViewController.state, .idle)
+        asyncViewController.loadView()
+        asyncViewController.viewDidLoad()
+        XCTAssertEqual(asyncViewController.state, .loading)
+        wait(for: [expect], timeout: 1)
     }
 
     // MARK: - Helper

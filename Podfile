@@ -6,14 +6,9 @@ target 'AsyncViewController' do
   pod 'SwiftLint'
 
   target 'AsyncViewControllerTests' do
-    # Pods for testing
   end
 end
 
 target 'AsyncViewController-Demo' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for AsyncViewController-Demo
-
 end
