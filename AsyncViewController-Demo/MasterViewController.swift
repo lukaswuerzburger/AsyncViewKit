@@ -8,61 +8,47 @@
 
 import UIKit
 
+struct Example {
+    var title: String
+    var action: () -> Void
+}
+
 class MasterViewController: UITableViewController {
+
+    var examples: [Example] = []
+    var references: [Any] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        examples = [
+            .init(title: "🎉 Success Push") { self.presentSuccessPush() },
+            .init(title: "🎉 Success Modal") { self.presentSuccessModal() },
+            .init(title: "⚠️ Failure Push") { self.presentFailurePush() },
+            .init(title: "⚠️ Failure Modal") { self.presentFailureModal() },
+            .init(title: "⚠️ Failure Push (Auto Dismiss + Alert)") { self.presentFailurePush(autoDismiss: true) },
+            .init(title: "⚠️ Failure Modal (Auto Dismiss + Alert)") { self.presentFailureModal(autoDismiss: true) },
+            .init(title: "🌈 Custom Loading Animation") { self.presentCustomAnimation() },
+            .init(title: "🧭 Navigation Item Override") { self.presentNavigationOverride() },
+            .init(title: "🧭 Custom Navigation Item Override") { self.presentCustomNavigationOverride() },
+            .init(title: "🔁 Reloading") { self.presentReloading() }
+        ]
+
         clearsSelectionOnViewWillAppear = true
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return examples.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if indexPath.row == 0 {
-            cell.textLabel!.text = "🎉 Success Push"
-        } else if indexPath.row == 1 {
-            cell.textLabel!.text = "🎉 Success Modal"
-        } else if indexPath.row == 2 {
-            cell.textLabel!.text = "⚠️ Failure Push"
-        } else if indexPath.row == 3 {
-            cell.textLabel!.text = "⚠️ Failure Modal"
-        } else if indexPath.row == 4 {
-            cell.textLabel!.text = "⚠️ Failure Push (Auto Dismiss + Alert)"
-        } else if indexPath.row == 5 {
-            cell.textLabel!.text = "⚠️ Failure Modal (Auto Dismiss + Alert)"
-        } else if indexPath.row == 6 {
-            cell.textLabel!.text = "🌈 Custom Loading Animation"
-        } else if indexPath.row == 7 {
-            cell.textLabel!.text = "🧭 Navigation Item Override"
-        } else if indexPath.row == 8 {
-            cell.textLabel!.text = "🧭 Custom Navigation Item Override"
-        }
+        cell.textLabel!.text = examples[indexPath.row].title
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            presentSuccessPush()
-        } else if indexPath.row == 1 {
-            presentSuccessModal()
-        } else if indexPath.row == 2 {
-            presentFailurePush()
-        } else if indexPath.row == 3 {
-            presentFailureModal()
-        } else if indexPath.row == 4 {
-            presentFailurePush(autoDismiss: true)
-        } else if indexPath.row == 5 {
-            presentFailureModal(autoDismiss: true)
-        } else if indexPath.row == 6 {
-            presentCustomAnimation()
-        } else if indexPath.row == 7 {
-            presentNavigationOverride()
-        } else if indexPath.row == 8 {
-            presentCustomNavigationOverride()
-        }
+        examples[indexPath.row].action()
     }
 
     // MARK: - Helper
@@ -172,6 +158,16 @@ class MasterViewController: UITableViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
+    func presentReloading() {
+        let viewController = successViewController()
+        let targetAction = TargetAction {
+            viewController.reload()
+        }
+        references.append(targetAction)
+        viewController.navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .refresh, target: targetAction, action: #selector(TargetAction.execute))
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
     func presentModalViewController(viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
@@ -187,6 +183,18 @@ class MasterViewController: UITableViewController {
         let alert = UIAlertController(title: "⚠️ Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(.init(title: "Dismiss", style: .cancel))
         present(alert, animated: true)
+    }
+}
+
+class TargetAction {
+    var action: () -> Void
+
+    init(action: @escaping () -> Void) {
+        self.action = action
+    }
+
+    @objc func execute() {
+        action()
     }
 }
 
