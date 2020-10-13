@@ -116,6 +116,7 @@ open class AsyncViewController<VC: UIViewController, T, E: Error>: UIViewControl
     }
 
     private func remove(_ viewController: UIViewController) {
+        viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
     }
