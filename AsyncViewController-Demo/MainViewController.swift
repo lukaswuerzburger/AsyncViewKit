@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  MainViewController.swift
 //  AsyncViewController-Demo
 //
 //  Created by Lukas Würzburger on 08.05.20.
@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AsyncViewController
 
 struct Example {
     var title: String
     var action: () -> Void
 }
 
-class MasterViewController: UITableViewController {
+class MainViewController: UITableViewController {
 
     var examples: [Example] = []
     var references: [Any] = []
@@ -31,7 +32,8 @@ class MasterViewController: UITableViewController {
             .init(title: "🌈 Custom Loading Animation") { self.presentCustomAnimation() },
             .init(title: "🧭 Navigation Item Override") { self.presentNavigationOverride() },
             .init(title: "🧭 Custom Navigation Item Override") { self.presentCustomNavigationOverride() },
-            .init(title: "🔁 Reloading") { self.presentReloading() }
+            .init(title: "🔁 Reloading") { self.presentReloading() },
+            .init(title: "✅ Unfailable Async Task") { self.presentUnfailableAsyncTask() }
         ]
 
         clearsSelectionOnViewWillAppear = true
@@ -53,40 +55,40 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Helper
 
-    func successViewController() -> AsyncViewController<UIViewController, String, Error> {
-        let viewController = AsyncViewController(load: { callback in
+    func successViewController() -> AsyncResultViewController<UIViewController, String, Error> {
+        let viewController = AsyncResultViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 callback(.success("It worked 🎉"))
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncResultViewController<UIViewController, String, Error>.FailureResolution in
             return .showViewController(self.errorViewController(error: error))
         })
         return viewController
     }
 
-    func failureViewController(_ failureBlock: @escaping (Error) -> AsyncViewController<UIViewController, String, Error>.FailureResolution) -> UIViewController {
-        let viewController = AsyncViewController(load: { callback in
+    func failureViewController(_ failureBlock: @escaping (Error) -> AsyncResultViewController<UIViewController, String, Error>.FailureResolution) -> UIViewController {
+        let viewController = AsyncResultViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 callback(.failure(MyResponseError.notFound))
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncResultViewController<UIViewController, String, Error>.FailureResolution in
             return failureBlock(error)
         })
         return viewController
     }
 
     func customAnimationViewController() -> UIViewController {
-        let viewController = AsyncViewController(load: { callback in
+        let viewController = AsyncResultViewController(load: { callback in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 callback(.success("It worked 🎉"))
             }
         }, success: { string -> UIViewController in
             return self.viewController(title: string)
-        }, failure: { error -> AsyncViewController<UIViewController, String, Error>.FailureResolution in
+        }, failure: { error -> AsyncResultViewController<UIViewController, String, Error>.FailureResolution in
             return .showViewController(self.errorViewController(error: error))
         })
         viewController.loadingViewController = CustomLoadingViewController()
@@ -166,6 +168,20 @@ class MasterViewController: UITableViewController {
         references.append(targetAction)
         viewController.navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .refresh, target: targetAction, action: #selector(TargetAction.execute))
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    func presentUnfailableAsyncTask() {
+        let viewController = AsyncViewController(load: { callback in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                callback("Always success!")
+            }
+        }, build: { string in
+            let viewController = UIViewController()
+            viewController.title = string
+            return viewController
+        })
+        viewController.navigationItemOverridePolicy = .title
+        presentModalViewController(viewController: viewController)
     }
 
     func presentModalViewController(viewController: UIViewController) {
