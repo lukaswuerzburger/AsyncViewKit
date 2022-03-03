@@ -1,14 +1,14 @@
 platform :ios, '9.0'
 
-target 'AsyncViewController' do
+target 'AsyncViewKit' do
   use_frameworks!
 
   pod 'SwiftLint'
 
-  target 'AsyncViewControllerTests' do
+  target 'AsyncViewKitTests' do
   end
 end
 
-target 'AsyncViewController-Demo' do
+target 'AsyncViewKitDemo' do
   use_frameworks!
 end

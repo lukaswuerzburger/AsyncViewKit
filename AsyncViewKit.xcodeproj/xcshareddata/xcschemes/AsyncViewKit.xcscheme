@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8AC164FB2465894600BBC00D"
                BuildableName = "AsyncViewController.framework"
-               BlueprintName = "AsyncViewController"
-               ReferencedContainer = "container:AsyncViewController.xcodeproj">
+               BlueprintName = "AsyncViewKit"
+               ReferencedContainer = "container:AsyncViewKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC164FB2465894600BBC00D"
             BuildableName = "AsyncViewController.framework"
-            BlueprintName = "AsyncViewController"
-            ReferencedContainer = "container:AsyncViewController.xcodeproj">
+            BlueprintName = "AsyncViewKit"
+            ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -45,8 +45,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A0DCB14246B21C6005B7829"
                BuildableName = "AsyncViewControllerTests.xctest"
-               BlueprintName = "AsyncViewControllerTests"
-               ReferencedContainer = "container:AsyncViewController.xcodeproj">
+               BlueprintName = "AsyncViewKitTests"
+               ReferencedContainer = "container:AsyncViewKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC164FB2465894600BBC00D"
             BuildableName = "AsyncViewController.framework"
-            BlueprintName = "AsyncViewController"
-            ReferencedContainer = "container:AsyncViewController.xcodeproj">
+            BlueprintName = "AsyncViewKit"
+            ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

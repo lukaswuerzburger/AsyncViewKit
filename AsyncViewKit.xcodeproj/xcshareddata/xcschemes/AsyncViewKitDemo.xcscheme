@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8AC165442465937F00BBC00D"
-               BuildableName = "AsyncViewController-Demo.app"
-               BlueprintName = "AsyncViewController-Demo"
-               ReferencedContainer = "container:AsyncViewController.xcodeproj">
+               BuildableName = "AsyncViewKit-Demo.app"
+               BlueprintName = "AsyncViewKitDemo"
+               ReferencedContainer = "container:AsyncViewKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC165442465937F00BBC00D"
-            BuildableName = "AsyncViewController-Demo.app"
-            BlueprintName = "AsyncViewController-Demo"
-            ReferencedContainer = "container:AsyncViewController.xcodeproj">
+            BuildableName = "AsyncViewKit-Demo.app"
+            BlueprintName = "AsyncViewKitDemo"
+            ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC165442465937F00BBC00D"
-            BuildableName = "AsyncViewController-Demo.app"
-            BlueprintName = "AsyncViewController-Demo"
-            ReferencedContainer = "container:AsyncViewController.xcodeproj">
+            BuildableName = "AsyncViewKit-Demo.app"
+            BlueprintName = "AsyncViewKitDemo"
+            ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

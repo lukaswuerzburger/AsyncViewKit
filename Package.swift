@@ -6,20 +6,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "AsyncViewController",
+    name: "AsyncViewKit",
     platforms: [
         .iOS(.v9)
     ],
     products: [
         .library(
-            name: "AsyncViewController",
-            targets: ["AsyncViewController"]
+            name: "AsyncViewKit",
+            targets: ["AsyncViewKit"]
         )
     ],
     targets: [
         .target(
-            name: "AsyncViewController",
-            path: "AsyncViewController"
+            name: "AsyncViewKit",
+            path: "AsyncViewKit"
         )
     ],
     swiftLanguageVersions: [

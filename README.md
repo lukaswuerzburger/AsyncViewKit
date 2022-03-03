@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async.png" alt="Flow Diagram" title="Flow Diagram" width="128"  height="128"/><br/>
-    <b>AsyncViewController</b><br/>
+    <img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewKit/develop/readme-images/async.png" alt="Flow Diagram" title="Flow Diagram" width="128"  height="128"/><br/>
+    <b>AsyncViewKit</b><br/>
     <br/>
     <img src="https://img.shields.io/badge/Swift-5-orange" alt="Swift Version" title="Swift Version"/>
-    <a href="https://travis-ci.org/lukaswuerzburger/AsyncViewController"><img src="https://travis-ci.org/lukaswuerzburger/AsyncViewController.svg?branch=develop" alt="Build Status" title="Build Status"/></a>
-    <a href="https://cocoapods.org/pods/AsyncViewController"><img src="https://img.shields.io/cocoapods/v/AsyncViewController.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/></a>
+    <a href="https://travis-ci.org/lukaswuerzburger/AsyncViewKit"><img src="https://travis-ci.org/lukaswuerzburger/AsyncViewKit.svg?branch=develop" alt="Build Status" title="Build Status"/></a>
+    <a href="https://cocoapods.org/pods/AsyncViewKit"><img src="https://img.shields.io/cocoapods/v/AsyncViewKit.svg?style=flat-square" alt="CocoaPods Compatible" title="CocoaPods Compatible"/></a>
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT" title="License MIT"/>
 </p>
 
@@ -24,7 +24,7 @@
 
 The `AsyncViewController` works as a bridge between loading your data for a specific view and presenting the view controller. It presents a loading screen as long as you're waiting for a response and you can provide the destination view controllers (either for success or error) beforehand without having to put all this logic into your final view controller.
 
-<img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/flow-diagram.png" alt="Flow Diagram" title="Flow Diagram"/>
+<img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewKit/develop/readme-images/flow-diagram.png" alt="Flow Diagram" title="Flow Diagram"/>
 
 ## 🖥 Example
 
@@ -79,7 +79,7 @@ func presentBookViewController(bookId: Int) {
 
 ## 🎟 Demo
 
-<img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewController/develop/readme-images/async-view-controller-demo.gif" alt="Async View Controller Demo" title="Async View Controller Demo" width="320"/>
+<img src="https://raw.githubusercontent.com/lukaswuerzburger/AsyncViewKit/develop/readme-images/async-view-controller-demo.gif" alt="Async View Kit Demo" title="Async View Kit Demo" width="320"/>
 
 You can find this demo app in this repository.
 
@@ -98,7 +98,7 @@ return .custom({ asyncViewController in
 
 **Custom Loading View:**
 
-If you want to show your own loading view you can use any `UIViewController` conforming to the `LoadingAnimatable` protocol described [here](AsyncViewController/Sources/LoadingAnimatable.swift).
+If you want to show your own loading view you can use any `UIViewController` conforming to the `LoadingAnimatable` protocol described [here](AsyncViewKit/Sources/LoadingAnimatable.swift).
 
 ```swift
 asyncViewController.loadingViewController = MyLoadingViewController()
@@ -108,17 +108,11 @@ Check out the Demo
 
 ## 💻 How to use
 
-**Cocoapods**:  
-`AsyncViewController` is available on Cocoapods. Just put following line in your `Podfile`:
-```ruby
-pod 'AsyncViewController'
-```
-
 **Swift Package Manager**:  
 Add the following to your `Package.swift` file:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/lukaswuerzburger/AsyncViewController.git", from: "2.1.1")
+    .package(url: "https://github.com/lukaswuerzburger/AsyncViewKit.git", from: "3.0.0")
 ]
 ```
 
