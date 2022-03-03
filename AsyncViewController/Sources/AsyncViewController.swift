@@ -19,7 +19,7 @@ open class AsyncViewController<T>: UIViewController {
     // MARK: - UI Elements
 
     public var loadingViewController: LoadingAnimatable = LoadingViewController()
-    private var destinationViewController: UIViewController?
+    public private(set) var destinationViewController: UIViewController?
 
     // MARK: - Variables
 
@@ -123,11 +123,14 @@ open class AsyncViewController<T>: UIViewController {
         addViewController(loadingViewController)
         loadingViewController.startLoadingAnimation()
         loadClosure { [weak self] result in
-            guard let self = self else { return }
-            self.loadingViewController.stopLoadingAnimation()
-            self.remove(self.loadingViewController)
-            self.handleReload(result: result)
+            self?.handleLoadClosureResult(result)
         }
+    }
+
+    private func handleLoadClosureResult(_ result: T) {
+        loadingViewController.stopLoadingAnimation()
+        remove(loadingViewController)
+        handleReload(result: result)
     }
 
     private func handleReload(result: T) {

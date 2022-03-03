@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1196664C27D0CDD6001FEEF8 /* AsyncViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196664B27D0CDD5001FEEF8 /* AsyncViewControllerTests.swift */; };
+		1196664F27D0D45C001FEEF8 /* MockAsyncResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196664E27D0D45C001FEEF8 /* MockAsyncResultViewController.swift */; };
+		1196665227D0D48D001FEEF8 /* FakeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196665127D0D48D001FEEF8 /* FakeError.swift */; };
+		1196665427D0D572001FEEF8 /* MockAsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196665327D0D572001FEEF8 /* MockAsyncViewController.swift */; };
 		5390C27CC669D333A9003AAE /* Pods_AsyncViewController_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2C2E251DB3B151B6FED0BB /* Pods_AsyncViewController_Demo.framework */; };
 		8A0DCB18246B21C6005B7829 /* AsyncResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0DCB17246B21C6005B7829 /* AsyncResultViewControllerTests.swift */; };
 		8A0DCB1A246B21C6005B7829 /* AsyncViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC164FC2465894600BBC00D /* AsyncViewController.framework */; };
@@ -23,7 +27,7 @@
 		8AC165092465899700BBC00D /* AsyncResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165082465899700BBC00D /* AsyncResultViewController.swift */; };
 		8AC1655C2465957C00BBC00D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165342465932400BBC00D /* AppDelegate.swift */; };
 		8AC1655D2465957C00BBC00D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165372465932400BBC00D /* SceneDelegate.swift */; };
-		8AC1655E2465957C00BBC00D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165352465932400BBC00D /* MasterViewController.swift */; };
+		8AC1655E2465957C00BBC00D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC165352465932400BBC00D /* MainViewController.swift */; };
 		8AC1655F2465958200BBC00D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1652F2465932400BBC00D /* Assets.xcassets */; };
 		8AC165602465958500BBC00D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC165302465932400BBC00D /* LaunchScreen.storyboard */; };
 		8AC165612465958500BBC00D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC165322465932400BBC00D /* Main.storyboard */; };
@@ -64,6 +68,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1196664B27D0CDD5001FEEF8 /* AsyncViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewControllerTests.swift; sourceTree = "<group>"; };
+		1196664E27D0D45C001FEEF8 /* MockAsyncResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAsyncResultViewController.swift; sourceTree = "<group>"; };
+		1196665127D0D48D001FEEF8 /* FakeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeError.swift; sourceTree = "<group>"; };
+		1196665327D0D572001FEEF8 /* MockAsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAsyncViewController.swift; sourceTree = "<group>"; };
 		2D8C165F0517EB0949586609 /* Pods_AsyncViewController_AsyncViewControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewController_AsyncViewControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DC8262CDDA3C1FF414EF92 /* Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController-AsyncViewControllerTests/Pods-AsyncViewController-AsyncViewControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,7 +95,7 @@
 		8AC165312465932400BBC00D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AC165332465932400BBC00D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AC165342465932400BBC00D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AC165352465932400BBC00D /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		8AC165352465932400BBC00D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8AC165362465932400BBC00D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC165372465932400BBC00D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8AC165452465937F00BBC00D /* AsyncViewController-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AsyncViewController-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +136,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1196664D27D0D44F001FEEF8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1196665327D0D572001FEEF8 /* MockAsyncViewController.swift */,
+				1196664E27D0D45C001FEEF8 /* MockAsyncResultViewController.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		1196665027D0D485001FEEF8 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				1196665127D0D48D001FEEF8 /* FakeError.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
 		493DEEB29B895AAD0740B805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +166,9 @@
 		8A0DCB16246B21C6005B7829 /* AsyncViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
+				1196665027D0D485001FEEF8 /* Fakes */,
+				1196664D27D0D44F001FEEF8 /* Mocks */,
+				1196664B27D0CDD5001FEEF8 /* AsyncViewControllerTests.swift */,
 				8A0DCB17246B21C6005B7829 /* AsyncResultViewControllerTests.swift */,
 				8A4CE2BB246C76ED00179FE6 /* LoadingViewControllerTests.swift */,
 				8A4CE2BD246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift */,
@@ -207,7 +235,7 @@
 				8AC165402465932E00BBC00D /* Supporting Files */,
 				8AC165342465932400BBC00D /* AppDelegate.swift */,
 				8AC165372465932400BBC00D /* SceneDelegate.swift */,
-				8AC165352465932400BBC00D /* MasterViewController.swift */,
+				8AC165352465932400BBC00D /* MainViewController.swift */,
 				8AC165622465A91900BBC00D /* DetailViewController.swift */,
 				8A46380C2466E33B000B963F /* CustomLoadingViewController.swift */,
 			);
@@ -473,8 +501,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4CE2BC246C76ED00179FE6 /* LoadingViewControllerTests.swift in Sources */,
+				1196664C27D0CDD6001FEEF8 /* AsyncViewControllerTests.swift in Sources */,
+				1196664F27D0D45C001FEEF8 /* MockAsyncResultViewController.swift in Sources */,
 				8A4CE2BE246C7E0900179FE6 /* NavigationItemOverridePolicyTests.swift in Sources */,
 				8A0DCB18246B21C6005B7829 /* AsyncResultViewControllerTests.swift in Sources */,
+				1196665227D0D48D001FEEF8 /* FakeError.swift in Sources */,
+				1196665427D0D572001FEEF8 /* MockAsyncViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC1655E2465957C00BBC00D /* MasterViewController.swift in Sources */,
+				8AC1655E2465957C00BBC00D /* MainViewController.swift in Sources */,
 				8AC1655C2465957C00BBC00D /* AppDelegate.swift in Sources */,
 				8A46380D2466E33B000B963F /* CustomLoadingViewController.swift in Sources */,
 				8AC165632465A91900BBC00D /* DetailViewController.swift in Sources */,

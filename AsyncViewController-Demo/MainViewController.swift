@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  MainViewController.swift
 //  AsyncViewController-Demo
 //
 //  Created by Lukas Würzburger on 08.05.20.
@@ -14,12 +14,7 @@ struct Example {
     var action: () -> Void
 }
 
-struct Example {
-    var title: String
-    var action: () -> Void
-}
-
-class MasterViewController: UITableViewController {
+class MainViewController: UITableViewController {
 
     var examples: [Example] = []
     var references: [Any] = []

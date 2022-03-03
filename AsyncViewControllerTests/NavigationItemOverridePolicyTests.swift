@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AsyncViewController
+import AsyncViewController
 
 class NavigationItemOverridePolicyTests: XCTestCase {
 
