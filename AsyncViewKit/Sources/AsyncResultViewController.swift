@@ -28,7 +28,8 @@ open class AsyncResultViewController<VC: UIViewController, T, E: Error>: AsyncVi
 
     // MARK: - Variables
 
-    private var loadClosure: (@escaping (Result<T, E>) -> Void) -> Void
+    private var loadClosure: ((@escaping (Result<T, E>) -> Void) -> Void)?
+    private var asyncLoadClosure: ((@escaping (Result<T, E>) -> Void) async -> Void)?
     private var successClosure: (T) -> VC
     private var failureClosure: (E) -> FailureResolution
 
@@ -40,6 +41,23 @@ open class AsyncResultViewController<VC: UIViewController, T, E: Error>: AsyncVi
         failure: @escaping (E) -> FailureResolution
     ) {
         loadClosure = load
+        successClosure = success
+        failureClosure = failure
+        var buildClosure: ((Result<T, E>) -> UIViewController?)?
+        super.init(load: load, build: { (result) -> UIViewController? in
+            buildClosure?(result)
+        })
+        buildClosure = { result in
+            self.handleReload(result: result)
+        }
+    }
+
+    public init(
+        load: @escaping (@escaping (Result<T, E>) -> Void) async -> Void,
+        success: @escaping (T) -> VC,
+        failure: @escaping (E) -> FailureResolution
+    ) {
+        asyncLoadClosure = load
         successClosure = success
         failureClosure = failure
         var buildClosure: ((Result<T, E>) -> UIViewController?)?

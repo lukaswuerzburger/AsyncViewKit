@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8AC164FB2465894600BBC00D"
-               BuildableName = "AsyncViewController.framework"
+               BuildableName = "AsyncViewKit.framework"
                BlueprintName = "AsyncViewKit"
                ReferencedContainer = "container:AsyncViewKit.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC164FB2465894600BBC00D"
-            BuildableName = "AsyncViewController.framework"
+            BuildableName = "AsyncViewKit.framework"
             BlueprintName = "AsyncViewKit"
             ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>
@@ -44,7 +44,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A0DCB14246B21C6005B7829"
-               BuildableName = "AsyncViewControllerTests.xctest"
+               BuildableName = "AsyncViewKitTests.xctest"
                BlueprintName = "AsyncViewKitTests"
                ReferencedContainer = "container:AsyncViewKit.xcodeproj">
             </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8AC164FB2465894600BBC00D"
-            BuildableName = "AsyncViewController.framework"
+            BuildableName = "AsyncViewKit.framework"
             BlueprintName = "AsyncViewKit"
             ReferencedContainer = "container:AsyncViewKit.xcodeproj">
          </BuildableReference>

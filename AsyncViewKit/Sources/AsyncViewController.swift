@@ -27,7 +27,11 @@ open class AsyncViewController<T>: UIViewController {
     public var fadesInResultingViewAfterLoading: Bool = true
     public var state: State = .idle
 
-    private var loadClosure: (@escaping (T) -> Void) -> Void
+    internal var taskProvider: TaskProvider = TaskFactory()
+    internal var dispatchQueue: DispatchQueueProvider = DispatchQueue.main
+
+    private var loadClosure: ((@escaping (T) -> Void) -> Void)?
+    private var asyncLoadClosure: (() async -> T)?
     private var buildClosure: (T) -> UIViewController?
 
     // MARK: - Initializer
@@ -37,6 +41,15 @@ open class AsyncViewController<T>: UIViewController {
         build: @escaping (T) -> UIViewController?
     ) {
         loadClosure = load
+        buildClosure = build
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    public init(
+        load: @escaping () async -> T,
+        build: @escaping (T) -> UIViewController?
+    ) {
+        asyncLoadClosure = load
         buildClosure = build
         super.init(nibName: nil, bundle: nil)
     }
@@ -122,8 +135,17 @@ open class AsyncViewController<T>: UIViewController {
         removeDestinationViewControllerIfNeeded()
         addViewController(loadingViewController)
         loadingViewController.startLoadingAnimation()
-        loadClosure { [weak self] result in
-            self?.handleLoadClosureResult(result)
+        if let asyncLoadClosure = asyncLoadClosure {
+            taskProvider.task { [weak self] in
+                let result = await asyncLoadClosure()
+                await self?.dispatchQueue.async {
+                    self?.handleLoadClosureResult(result)
+                }
+            }
+        } else if let loadClosure = loadClosure {
+            loadClosure { [weak self] result in
+                self?.handleLoadClosureResult(result)
+            }
         }
     }
 
