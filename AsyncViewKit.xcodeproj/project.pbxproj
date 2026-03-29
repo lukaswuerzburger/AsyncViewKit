@@ -11,6 +11,8 @@
 		1196664F27D0D45C001FEEF8 /* MockAsyncResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196664E27D0D45C001FEEF8 /* MockAsyncResultViewController.swift */; };
 		1196665227D0D48D001FEEF8 /* FakeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196665127D0D48D001FEEF8 /* FakeError.swift */; };
 		1196665427D0D572001FEEF8 /* MockAsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196665327D0D572001FEEF8 /* MockAsyncViewController.swift */; };
+		803E0972281565ED00A79A5B /* TaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E0971281565ED00A79A5B /* TaskFactory.swift */; };
+		803E0974281567F000A79A5B /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803E0973281567F000A79A5B /* DispatchQueue.swift */; };
 		85FB71CAF40B0E442046D72E /* Pods_AsyncViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365668AB78B5369258B323A1 /* Pods_AsyncViewKitDemo.framework */; };
 		8A0DCB18246B21C6005B7829 /* AsyncResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0DCB17246B21C6005B7829 /* AsyncResultViewControllerTests.swift */; };
 		8A0DCB1A246B21C6005B7829 /* AsyncViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC164FC2465894600BBC00D /* AsyncViewKit.framework */; };
@@ -77,6 +79,8 @@
 		365668AB78B5369258B323A1 /* Pods_AsyncViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3B7AE5DCC76BEE3144EEE1 /* Pods-AsyncViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.debug.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.debug.xcconfig"; sourceTree = "<group>"; };
 		7B3BEFE6FBF5F4CD89924B06 /* Pods-AsyncViewKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewKitDemo.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewKitDemo/Pods-AsyncViewKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		803E0971281565ED00A79A5B /* TaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFactory.swift; sourceTree = "<group>"; };
+		803E0973281567F000A79A5B /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		8504692A682E7F1081E96136 /* Pods-AsyncViewKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewKit.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewKit/Pods-AsyncViewKit.release.xcconfig"; sourceTree = "<group>"; };
 		8877A8C4ACC7F698C19F4096 /* Pods-AsyncViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncViewController.release.xcconfig"; path = "Target Support Files/Pods-AsyncViewController/Pods-AsyncViewController.release.xcconfig"; sourceTree = "<group>"; };
 		8A0DCB15246B21C6005B7829 /* AsyncViewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncViewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				8A5C12212483D223003544D1 /* AsyncViewController.swift */,
+				803E0971281565ED00A79A5B /* TaskFactory.swift */,
+				803E0973281567F000A79A5B /* DispatchQueue.swift */,
 				8AC165082465899700BBC00D /* AsyncResultViewController.swift */,
 				8A46380E2466E6EA000B963F /* LoadingViewController.swift */,
 				8A4638112466E74B000B963F /* LoadingAnimatable.swift */,
@@ -527,9 +533,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A61829224686025004383B3 /* NavigationItemOverridePolicy.swift in Sources */,
+				803E0972281565ED00A79A5B /* TaskFactory.swift in Sources */,
 				8A4638122466E74B000B963F /* LoadingAnimatable.swift in Sources */,
 				8AC165092465899700BBC00D /* AsyncResultViewController.swift in Sources */,
 				8A46380F2466E6EA000B963F /* LoadingViewController.swift in Sources */,
+				803E0974281567F000A79A5B /* DispatchQueue.swift in Sources */,
 				8A5C12222483D223003544D1 /* AsyncViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -726,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
